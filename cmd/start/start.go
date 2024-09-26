@@ -5,6 +5,7 @@ import (
 	"crypto/tls"
 	_ "embed"
 	"fmt"
+	"github.com/zitadel/zitadel/internal/socket"
 	"math"
 	"net/http"
 	"os"
@@ -86,7 +87,7 @@ import (
 	"github.com/zitadel/zitadel/internal/logstore/emitters/execution"
 	"github.com/zitadel/zitadel/internal/logstore/emitters/stdout"
 	"github.com/zitadel/zitadel/internal/logstore/record"
-	"github.com/zitadel/zitadel/internal/net"
+	znet "github.com/zitadel/zitadel/internal/net"
 	"github.com/zitadel/zitadel/internal/notification"
 	"github.com/zitadel/zitadel/internal/query"
 	"github.com/zitadel/zitadel/internal/static"
@@ -96,7 +97,7 @@ import (
 	"github.com/zitadel/zitadel/openapi"
 )
 
-func New(server chan<- *Server) *cobra.Command {
+func New() *cobra.Command {
 	start := &cobra.Command{
 		Use:   "start",
 		Short: "starts ZITADEL instance",
@@ -104,7 +105,12 @@ func New(server chan<- *Server) *cobra.Command {
 Requirements:
 - cockroachdb`,
 		RunE: func(cmd *cobra.Command, args []string) error {
-			err := cmd_tls.ModeFromFlag(cmd)
+			startup, closeSocket, err := listenSocket(cmd.Context())
+			if err != nil {
+				return err
+			}
+			defer closeSocket()
+			err = cmd_tls.ModeFromFlag(cmd)
 			if err != nil {
 				return err
 			}
@@ -113,7 +119,7 @@ Requirements:
 			if err != nil {
 				return err
 			}
-			return startZitadel(cmd.Context(), config, masterKey, server)
+			return startZitadel(cmd.Context(), config, masterKey, startup)
 		},
 	}
 
@@ -136,6 +142,8 @@ type Server struct {
 	TLSConfig  *tls.Config
 	Shutdown   chan<- os.Signal
 }
+
+const socketPath = "/tmp/zitadel.sock"
 
 func startZitadel(ctx context.Context, config *Config, masterKey string, server chan<- *Server) error {
 	showBasicInformation(config)
@@ -290,7 +298,7 @@ func startZitadel(ctx context.Context, config *Config, masterKey string, server 
 	if err != nil {
 		return err
 	}
-	api, err := startAPIs(
+	apis, err := startAPIs(
 		ctx,
 		clock,
 		router,
@@ -307,13 +315,12 @@ func startZitadel(ctx context.Context, config *Config, masterKey string, server 
 	if err != nil {
 		return err
 	}
-	commands.GrpcMethodExisting = checkExisting(api.ListGrpcMethods())
-	commands.GrpcServiceExisting = checkExisting(api.ListGrpcServices())
+	commands.GrpcMethodExisting = checkExisting(apis.ListGrpcMethods())
+	commands.GrpcServiceExisting = checkExisting(apis.ListGrpcServices())
 
 	shutdown := make(chan os.Signal, 1)
 	signal.Notify(shutdown, os.Interrupt, syscall.SIGTERM)
-
-	if server != nil {
+	go func() {
 		server <- &Server{
 			Config:     config,
 			DB:         queryDBClient,
@@ -329,8 +336,7 @@ func startZitadel(ctx context.Context, config *Config, masterKey string, server 
 			Shutdown:   shutdown,
 		}
 		close(server)
-	}
-
+	}()
 	return listen(ctx, router, config.Port, tlsConfig, shutdown)
 }
 
@@ -549,14 +555,12 @@ func listen(ctx context.Context, router *mux.Router, port uint16, tlsConfig *tls
 	http2Server := &http2.Server{}
 	http1Server := &http.Server{Handler: h2c.NewHandler(router, http2Server), TLSConfig: tlsConfig}
 
-	lc := net.ListenConfig()
+	lc := znet.ListenConfig()
 	lis, err := lc.Listen(ctx, "tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		return fmt.Errorf("tcp listener on %d failed: %w", port, err)
 	}
-
 	errCh := make(chan error)
-
 	go func() {
 		logging.Infof("server is listening on %s", lis.Addr().String())
 		if tlsConfig != nil {
@@ -566,7 +570,6 @@ func listen(ctx context.Context, router *mux.Router, port uint16, tlsConfig *tls
 			errCh <- http1Server.Serve(lis)
 		}
 	}()
-
 	select {
 	case err := <-errCh:
 		return fmt.Errorf("error starting server: %w", err)
@@ -620,4 +623,19 @@ func checkExisting(values []string) func(string) bool {
 	return func(value string) bool {
 		return slices.Contains(values, value)
 	}
+}
+
+func listenSocket(ctx context.Context) (chan<- *Server, func() error, error) {
+	return socket.Listen(func(server *Server, request socket.SocketRequest) (socket.SocketResponse, error) {
+		switch request {
+		case socket.ReadinessQuery:
+			if readyErr := server.Queries.Health(ctx); readyErr != nil {
+				logging.Warnf("readiness check failed: %v", readyErr)
+				return socket.False, nil
+			}
+			return socket.True, nil
+		default:
+			return socket.UnknownRequest, fmt.Errorf("unknown request: %d", request)
+		}
+	})
 }
