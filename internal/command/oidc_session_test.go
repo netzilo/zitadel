@@ -394,10 +394,10 @@ func TestCommands_CreateOIDCSessionFromAuthRequest(t *testing.T) {
 							},
 						),
 						oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
-						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "at_accessTokenID"),
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "accessTokenID"),
 						oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+							"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						authrequest.NewSucceededEvent(context.Background(), &authrequest.NewAggregate("V2_authRequestID", "instanceID").Aggregate),
 					),
 				),
@@ -416,7 +416,7 @@ func TestCommands_CreateOIDCSessionFromAuthRequest(t *testing.T) {
 			res{
 				session: &OIDCSession{
 					SessionID:         "sessionID",
-					TokenID:           "V2_oidcSessionID-at_accessTokenID",
+					TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 					ClientID:          "clientID",
 					UserID:            "userID",
 					Audience:          []string{"audience"},
@@ -433,7 +433,7 @@ func TestCommands_CreateOIDCSessionFromAuthRequest(t *testing.T) {
 						Header:        http.Header{"foo": []string{"bar"}},
 					},
 					Reason:       domain.TokenReasonAuthRequest,
-					RefreshToken: "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID-rt_refreshTokenID:userID
+					RefreshToken: "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 				},
 				state: "state",
 			},
@@ -528,9 +528,9 @@ func TestCommands_CreateOIDCSessionFromAuthRequest(t *testing.T) {
 							},
 						),
 						oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+							"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						authrequest.NewSucceededEvent(context.Background(), &authrequest.NewAggregate("V2_authRequestID", "instanceID").Aggregate),
 					),
 				),
@@ -554,7 +554,7 @@ func TestCommands_CreateOIDCSessionFromAuthRequest(t *testing.T) {
 			res{
 				session: &OIDCSession{
 					SessionID:         "sessionID",
-					TokenID:           "V2_oidcSessionID-at_accessTokenID",
+					TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 					ClientID:          "clientID",
 					UserID:            "userID",
 					Audience:          []string{"audience"},
@@ -571,7 +571,7 @@ func TestCommands_CreateOIDCSessionFromAuthRequest(t *testing.T) {
 						Header:        http.Header{"foo": []string{"bar"}},
 					},
 					Reason:       domain.TokenReasonAuthRequest,
-					RefreshToken: "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID-rt_refreshTokenID:userID
+					RefreshToken: "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 				},
 				state: "state",
 			},
@@ -880,13 +880,13 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 						),
 						oidcsession.NewAccessTokenAddedEvent(context.Background(),
 							&oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
 							&domain.TokenActor{
 								UserID: "user2",
 								Issuer: "foo.com",
 							},
 						),
-						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "at_accessTokenID"),
+						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "accessTokenID"),
 					),
 				),
 				idGenerator:                     mock.NewIDGeneratorExpectIDs(t, "oidcSessionID", "accessTokenID"),
@@ -920,7 +920,7 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 				needRefreshToken: false,
 			},
 			want: &OIDCSession{
-				TokenID:           "V2_oidcSessionID-at_accessTokenID",
+				TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 				ClientID:          "clientID",
 				UserID:            "userID",
 				Audience:          []string{"audience"},
@@ -976,7 +976,7 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 						),
 						oidcsession.NewAccessTokenAddedEvent(context.Background(),
 							&oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
 							&domain.TokenActor{
 								UserID: "user2",
 								Issuer: "foo.com",
@@ -1020,7 +1020,7 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 				needRefreshToken: false,
 			},
 			want: &OIDCSession{
-				TokenID:           "V2_oidcSessionID-at_accessTokenID",
+				TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"}),
 				ClientID:          "clientID",
 				UserID:            "userID",
 				Audience:          []string{"audience"},
@@ -1076,14 +1076,14 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 						),
 						oidcsession.NewAccessTokenAddedEvent(context.Background(),
 							&oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
 							&domain.TokenActor{
 								UserID: "user2",
 								Issuer: "foo.com",
 							}),
-						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "at_accessTokenID"),
+						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "accessTokenID"),
 						oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+							"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 					),
 				),
 				idGenerator:                     mock.NewIDGeneratorExpectIDs(t, "oidcSessionID", "accessTokenID", "refreshTokenID"),
@@ -1117,7 +1117,7 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 				needRefreshToken: true,
 			},
 			want: &OIDCSession{
-				TokenID:           "V2_oidcSessionID-at_accessTokenID",
+				TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 				ClientID:          "clientID",
 				UserID:            "userID",
 				Audience:          []string{"audience"},
@@ -1138,7 +1138,7 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 					UserID: "user2",
 					Issuer: "foo.com",
 				},
-				RefreshToken: "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID-rt_refreshTokenID:userID
+				RefreshToken: "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 			},
 		},
 		{
@@ -1174,13 +1174,13 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 						),
 						oidcsession.NewAccessTokenAddedEvent(context.Background(),
 							&oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest,
 							&domain.TokenActor{
 								UserID: "user2",
 								Issuer: "foo.com",
 							},
 						),
-						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "at_accessTokenID"),
+						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "accessTokenID"),
 					),
 				),
 				idGenerator:                     mock.NewIDGeneratorExpectIDs(t, "oidcSessionID", "accessTokenID"),
@@ -1215,7 +1215,7 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 				sessionID:        "sessionID",
 			},
 			want: &OIDCSession{
-				TokenID:           "V2_oidcSessionID-at_accessTokenID",
+				TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 				ClientID:          "clientID",
 				UserID:            "userID",
 				Audience:          []string{"audience"},
@@ -1634,13 +1634,13 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 						),
 						oidcsession.NewAccessTokenAddedEvent(context.Background(),
 							&oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonImpersonation,
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonImpersonation,
 							&domain.TokenActor{
 								UserID: "user2",
 								Issuer: "foo.com",
 							},
 						),
-						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "at_accessTokenID"),
+						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "accessTokenID"),
 					),
 				),
 				idGenerator:                     mock.NewIDGeneratorExpectIDs(t, "oidcSessionID", "accessTokenID"),
@@ -1677,7 +1677,7 @@ func TestCommands_CreateOIDCSession(t *testing.T) {
 				needRefreshToken: false,
 			},
 			want: &OIDCSession{
-				TokenID:           "V2_oidcSessionID-at_accessTokenID",
+				TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 				ClientID:          "clientID",
 				UserID:            "userID",
 				Audience:          []string{"audience"},
@@ -1803,7 +1803,7 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 			},
 			args{
 				ctx:             authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken:    "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID:rt_refreshTokenID:userID
+				refreshToken:    "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 				complianceCheck: mockRefreshTokenComplianceChecker(nil),
 			},
 			res{
@@ -1832,7 +1832,7 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 			},
 			args{
 				ctx:             authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken:    "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID:rt_refreshTokenID:userID
+				refreshToken:    "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 				complianceCheck: mockRefreshTokenComplianceChecker(nil),
 			},
 			res{
@@ -1853,11 +1853,11 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 						),
 						eventFromEventPusher(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 						eventFromEventPusher(
 							oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+								"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						),
 					),
 				),
@@ -1865,7 +1865,7 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 			},
 			args{
 				ctx:             authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken:    "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID:rt_refreshTokenID:userID
+				refreshToken:    "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 				complianceCheck: mockRefreshTokenComplianceChecker(nil),
 			},
 			res{
@@ -1886,11 +1886,11 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+								"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						),
 					),
 					expectFilter(
@@ -1921,7 +1921,7 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 			},
 			args{
 				ctx:             authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken:    "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID:rt_refreshTokenID:userID
+				refreshToken:    "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 				scope:           []string{"openid", "offline_access"},
 				complianceCheck: mockRefreshTokenComplianceChecker(nil),
 			},
@@ -1943,11 +1943,11 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+								"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						),
 					),
 					expectFilter(
@@ -1968,10 +1968,10 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 					expectFilter(), // token lifetime
 					expectPush(
 						oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"at_accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonRefresh, nil),
-						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "at_accessTokenID"),
+							"accessTokenID", []string{"openid", "offline_access"}, time.Hour, domain.TokenReasonRefresh, nil),
+						user.NewUserTokenV2AddedEvent(context.Background(), &user.NewAggregate("userID", "org1").Aggregate, "accessTokenID"),
 						oidcsession.NewRefreshTokenRenewedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-							"rt_refreshTokenID2", 24*time.Hour),
+							"refreshTokenID2", 24*time.Hour),
 					),
 				),
 				idGenerator:                     mock.NewIDGeneratorExpectIDs(t, "accessTokenID", "refreshTokenID2"),
@@ -1982,18 +1982,18 @@ func TestCommands_ExchangeOIDCSessionRefreshAndAccessToken(t *testing.T) {
 			},
 			args{
 				ctx:             authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken:    "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDp1c2VySUQ", //V2_oidcSessionID:rt_refreshTokenID:userID
+				refreshToken:    "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VRaWZRPT06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):userID)
 				scope:           []string{"openid", "offline_access"},
 				complianceCheck: mockRefreshTokenComplianceChecker(nil),
 			},
 			res{
 				session: &OIDCSession{
 					SessionID:         "sessionID",
-					TokenID:           "V2_oidcSessionID-at_accessTokenID",
+					TokenID:           "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 					ClientID:          "clientID",
 					UserID:            "userID",
 					Audience:          []string{"audience"},
-					RefreshToken:      "VjJfb2lkY1Nlc3Npb25JRC1ydF9yZWZyZXNoVG9rZW5JRDI6dXNlcklE", // V2_oidcSessionID-rt_refreshTokenID2:userID%
+					RefreshToken:      "ZXlKcFpDSTZJbFl5WDI5cFpHTlRaWE56YVc5dVNVUWlMQ0p5WldaeVpYTm9YM1J2YTJWdUlqb2ljbVZtY21WemFGUnZhMlZ1U1VReUluMD06dXNlcklE", // Base64(Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID2"}):userID)
 					Expiration:        time.Time{}.Add(time.Hour),
 					Scope:             []string{"openid", "profile", "offline_access"},
 					AuthMethods:       []domain.UserAuthMethodType{domain.UserAuthMethodTypePassword},
@@ -2075,7 +2075,7 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 			},
 			args{
 				ctx:          authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken: "V2_oidcSessionID-rt_refreshTokenID:userID",
+				refreshToken: "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJyZWZyZXNoX3Rva2VuIjoicmVmcmVzaFRva2VuSUQifQ==:userID", // Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):
 			},
 			res{
 				err: zerrors.ThrowPreconditionFailed(nil, "OIDCS-s3hjk", "Errors.OIDCSession.RefreshTokenInvalid"),
@@ -2095,7 +2095,7 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 						),
 						eventFromEventPusher(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 					),
 				),
@@ -2103,7 +2103,7 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 			},
 			args{
 				ctx:          authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken: "V2_oidcSessionID-rt_refreshTokenID:userID",
+				refreshToken: "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJyZWZyZXNoX3Rva2VuIjoicmVmcmVzaFRva2VuSUQifQ==:userID", // Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):
 			},
 			res{
 				err: zerrors.ThrowPreconditionFailed(nil, "OIDCS-28ubl", "Errors.OIDCSession.RefreshTokenInvalid"),
@@ -2123,11 +2123,11 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 						),
 						eventFromEventPusher(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 						eventFromEventPusher(
 							oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+								"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						),
 					),
 				),
@@ -2135,7 +2135,7 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 			},
 			args{
 				ctx:          authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken: "V2_oidcSessionID-rt_refreshTokenID:userID",
+				refreshToken: "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJyZWZyZXNoX3Rva2VuIjoicmVmcmVzaFRva2VuSUQifQ==:userID", // Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):
 			},
 			res{
 				err: zerrors.ThrowPreconditionFailed(nil, "OIDCS-3jt2w", "Errors.OIDCSession.RefreshTokenInvalid"),
@@ -2155,11 +2155,11 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+								"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						),
 					),
 				),
@@ -2167,7 +2167,7 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 			},
 			args{
 				ctx:          authz.WithInstanceID(context.Background(), "instanceID"),
-				refreshToken: "V2_oidcSessionID-rt_refreshTokenID:userID",
+				refreshToken: "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJyZWZyZXNoX3Rva2VuIjoicmVmcmVzaFRva2VuSUQifQ==:userID", // Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"}):
 			},
 			res{
 				model: &OIDCSessionWriteModel{
@@ -2183,7 +2183,7 @@ func TestCommands_OIDCSessionByRefreshToken(t *testing.T) {
 					AuthMethods:                []domain.UserAuthMethodType{domain.UserAuthMethodTypePassword},
 					AuthTime:                   testNow,
 					State:                      domain.OIDCSessionStateActive,
-					RefreshTokenID:             "rt_refreshTokenID",
+					RefreshTokenID:             "refreshTokenID",
 					RefreshTokenExpiration:     testNow.Add(7 * 24 * time.Hour),
 					RefreshTokenIdleExpiration: testNow.Add(24 * time.Hour),
 				},
@@ -2274,7 +2274,7 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 			},
 			args{
 				ctx:      authz.WithInstanceID(context.Background(), "instanceID"),
-				token:    "V2_oidcSessionID-rt_refreshTokenID",
+				token:    "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJyZWZyZXNoX3Rva2VuIjoicmVmcmVzaFRva2VuSUQifQ==", // Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"})
 				clientID: "clientID",
 			},
 			res{
@@ -2299,7 +2299,7 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 			},
 			args{
 				ctx:      authz.WithInstanceID(context.Background(), "instanceID"),
-				token:    "V2_oidcSessionID-rt_refreshTokenID",
+				token:    "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJyZWZyZXNoX3Rva2VuIjoicmVmcmVzaFRva2VuSUQifQ==", // Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"})
 				clientID: "clientID",
 			},
 			res{
@@ -2320,11 +2320,11 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+								"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						),
 					),
 					expectPush(
@@ -2335,7 +2335,7 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 			},
 			args{
 				ctx:      authz.WithInstanceID(context.Background(), "instanceID"),
-				token:    "V2_oidcSessionID-rt_refreshTokenID",
+				token:    "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJyZWZyZXNoX3Rva2VuIjoicmVmcmVzaFRva2VuSUQifQ==", // Base64({"id":"V2_oidcSessionID","refresh_token":"refreshTokenID"})
 				clientID: "clientID",
 			},
 			res{
@@ -2360,7 +2360,7 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 			},
 			args{
 				ctx:      authz.WithInstanceID(context.Background(), "instanceID"),
-				token:    "V2_oidcSessionID-at_accessTokenID",
+				token:    "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 				clientID: "clientID",
 			},
 			res{
@@ -2385,7 +2385,7 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 			},
 			args{
 				ctx:      authz.WithInstanceID(context.Background(), "instanceID"),
-				token:    "V2_oidcSessionID-at_accessTokenID",
+				token:    "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 				clientID: "clientID",
 			},
 			res{
@@ -2406,11 +2406,11 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewAccessTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"at_accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
+								"accessTokenID", []string{"openid", "profile", "offline_access"}, time.Hour, domain.TokenReasonAuthRequest, nil),
 						),
 						eventFromEventPusherWithCreationDateNow(
 							oidcsession.NewRefreshTokenAddedEvent(context.Background(), &oidcsession.NewAggregate("V2_oidcSessionID", "org1").Aggregate,
-								"rt_refreshTokenID", 7*24*time.Hour, 24*time.Hour),
+								"refreshTokenID", 7*24*time.Hour, 24*time.Hour),
 						),
 					),
 					expectPush(
@@ -2421,7 +2421,7 @@ func TestCommands_RevokeOIDCSessionToken(t *testing.T) {
 			},
 			args{
 				ctx:      authz.WithInstanceID(context.Background(), "instanceID"),
-				token:    "V2_oidcSessionID-at_accessTokenID",
+				token:    "eyJpZCI6IlYyX29pZGNTZXNzaW9uSUQiLCJhY2Nlc3NfdG9rZW4iOiJhY2Nlc3NUb2tlbklEIn0=", // Base64({"id":"V2_oidcSessionID","access_token":"accessTokenID"})
 				clientID: "clientID",
 			},
 			res{
