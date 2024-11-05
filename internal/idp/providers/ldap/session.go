@@ -276,7 +276,7 @@ func mapLDAPEntryToUser(
 		phoneVerified,
 		language.Make(user.GetAttributeValue(preferredLanguageAttribute)),
 		user.GetAttributeValue(avatarURLAttribute),
-		user.GetAttributeValue(profileAttribute),
+		user.GetAttributeValues(profileAttribute),
 	), nil
 }
 
