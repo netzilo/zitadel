@@ -1,6 +1,8 @@
 package ldap
 
 import (
+	"strings"
+
 	"golang.org/x/text/language"
 
 	"github.com/zitadel/zitadel/internal/domain"
@@ -19,7 +21,7 @@ type User struct {
 	PhoneVerified     bool                `json:"phoneVerified,omitempty"`
 	PreferredLanguage language.Tag        `json:"preferredLanguage,omitempty"`
 	AvatarURL         string              `json:"avatarURL,omitempty"`
-	Profile           string              `json:"profile,omitempty"`
+	Profile           []string            `json:"profile,omitempty"`
 }
 
 func NewUser(
@@ -35,7 +37,7 @@ func NewUser(
 	phoneVerified bool,
 	preferredLanguage language.Tag,
 	avatarURL string,
-	profile string,
+	profile []string,
 ) *User {
 	return &User{
 		id,
@@ -91,5 +93,5 @@ func (u *User) GetAvatarURL() string {
 	return u.AvatarURL
 }
 func (u *User) GetProfile() string {
-	return u.Profile
+	return strings.Join(u.Profile, ";")
 }
