@@ -87,7 +87,7 @@ services:
 
   zitadel-init:
     user: '$UID'
-    image: '${ZITADEL_IMAGE:-ghcr.io/zitadel/zitadel:latest}'
+    image: '${ZITADEL_IMAGE:-ghcr.io/netzilo/zitadel:latest}'
     command: 'init --config /zitadel.yaml'
     depends_on:
       db:

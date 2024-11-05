@@ -89,7 +89,7 @@ jobs:
       packages: write
     if: ${{ github.event_name == 'workflow_dispatch' }}
     with:
-      build_image_name: "ghcr.io/zitadel/zitadel-build"
+      build_image_name: "ghcr.io/netzilo/zitadel-build"
 
   e2e:
     uses: ./.github/workflows/e2e.yml
@@ -112,5 +112,5 @@ jobs:
     with:
       build_image_name: ${{ needs.container.outputs.build_image }}
       semantic_version: "23.0.7"
-      image_name: "ghcr.io/zitadel/zitadel"
+      image_name: "ghcr.io/netzilo/zitadel"
       google_image_name: "europe-docker.pkg.dev/zitadel-common/zitadel-repo/zitadel"
