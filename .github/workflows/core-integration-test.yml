@@ -18,8 +18,8 @@ on:
 
 jobs:
   postgres:
-    runs-on:
-      group: zitadel-public
+    runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres

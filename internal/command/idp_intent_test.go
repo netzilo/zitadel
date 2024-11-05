@@ -1112,7 +1112,7 @@ func TestCommands_SucceedLDAPIDPIntent(t *testing.T) {
 					false,
 					language.Tag{},
 					"",
-					"",
+					[]string{},
 				),
 			},
 			res{
