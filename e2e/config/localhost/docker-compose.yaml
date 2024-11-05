@@ -4,7 +4,7 @@ services:
   zitadel:
     user: '$UID'
     restart: 'always'
-    image: '${ZITADEL_IMAGE:-ghcr.io/zitadel/zitadel:latest}'
+    image: '${ZITADEL_IMAGE:-ghcr.io/netzilo/zitadel:latest}'
     build:
       context: ../../..
       dockerfile: ./build/Dockerfile
