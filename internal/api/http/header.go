@@ -108,9 +108,10 @@ func GetOrgID(r *http.Request) string {
 }
 
 func GetForwardedFor(headers http.Header) (string, bool) {
-	forwarded, ok := headers[ForwardedFor]
-	if ok {
-		ip := strings.TrimSpace(strings.Split(forwarded[0], ",")[0])
+	// Use Get() for case-insensitive header lookup (Go canonicalizes header names)
+	forwarded := headers.Get(ForwardedFor)
+	if forwarded != "" {
+		ip := strings.TrimSpace(strings.Split(forwarded, ",")[0])
 		if ip != "" {
 			return ip, true
 		}
