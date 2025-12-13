@@ -79,8 +79,6 @@ jobs:
         timeout-minutes: 3
         with:
           context: .
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
           file: build/Dockerfile
           target: artifact
           platforms: linux/${{ matrix.arch }}
@@ -94,8 +92,6 @@ jobs:
         timeout-minutes: 3
         with:
           context: .
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
           file: build/Dockerfile
           target: final
           platforms: linux/${{ matrix.arch }}
