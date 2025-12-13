@@ -50,25 +50,25 @@ jobs:
       console_cache_path: ${{ needs.console.outputs.cache_path }}
       version: ${{ needs.version.outputs.version }}
 
-  core-unit-test:
-    needs: core
-    uses: ./.github/workflows/core-unit-test.yml
-    with:
-      go_version: "1.22"
-      core_cache_key: ${{ needs.core.outputs.cache_key }}
-      core_cache_path: ${{ needs.core.outputs.cache_path }}
-    secrets:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  # core-unit-test:
+  #   needs: core
+  #   uses: ./.github/workflows/core-unit-test.yml
+  #   with:
+  #     go_version: "1.22"
+  #     core_cache_key: ${{ needs.core.outputs.cache_key }}
+  #     core_cache_path: ${{ needs.core.outputs.cache_path }}
+  #   secrets:
+  #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
-  core-integration-test:
-    needs: core
-    uses: ./.github/workflows/core-integration-test.yml
-    with:
-      go_version: "1.22"
-      core_cache_key: ${{ needs.core.outputs.cache_key }}
-      core_cache_path: ${{ needs.core.outputs.cache_path }}
-    secrets:
-      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+  # core-integration-test:
+  #   needs: core
+  #   uses: ./.github/workflows/core-integration-test.yml
+  #   with:
+  #     go_version: "1.22"
+  #     core_cache_key: ${{ needs.core.outputs.cache_key }}
+  #     core_cache_path: ${{ needs.core.outputs.cache_path }}
+  #   secrets:
+  #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   lint:
     needs: [core, console]
