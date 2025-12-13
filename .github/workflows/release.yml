@@ -12,13 +12,7 @@ on:
       image_name:
         required: true
         type: string
-      google_image_name:
-        required: true
-        type: string
     secrets:
-      GCR_JSON_KEY_BASE64:
-        description: 'base64 endcrypted key to connect to Google'
-        required: true
       APP_ID:
         description: 'GH App ID to request token for homebrew update'
         required: true
