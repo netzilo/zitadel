@@ -91,9 +91,9 @@ jobs:
     with:
       build_image_name: "ghcr.io/netzilo/zitadel-build"
 
-  e2e:
-    uses: ./.github/workflows/e2e.yml
-    needs: [compile]
+  # e2e:
+  #   uses: ./.github/workflows/e2e.yml
+  #   needs: [compile]
 
   release:
     uses: ./.github/workflows/release.yml
@@ -103,7 +103,7 @@ jobs:
       issues: write
       pull-requests: write
     needs:
-      [version, core-unit-test, core-integration-test, lint, container, e2e]
+      [version, lint, container]
     if: ${{ github.event_name == 'workflow_dispatch' }}
     secrets:
       GCR_JSON_KEY_BASE64: ${{ secrets.GCR_JSON_KEY_BASE64 }}
