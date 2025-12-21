@@ -20,6 +20,7 @@ const (
 	Pragma           = "pragma"
 	UserAgentHeader  = "user-agent"
 	ForwardedFor     = "x-forwarded-for"
+	RealIP           = "x-real-ip"
 	ForwardedHost    = "x-forwarded-host"
 	ForwardedProto   = "x-forwarded-proto"
 	Forwarded        = "forwarded"
@@ -108,7 +109,16 @@ func GetOrgID(r *http.Request) string {
 }
 
 func GetForwardedFor(headers http.Header) (string, bool) {
-	// Use Get() for case-insensitive header lookup (Go canonicalizes header names)
+	// Try X-Real-IP first (most reliable when set by trusted proxy)
+	realIP := headers.Get(RealIP)
+	if realIP != "" {
+		ip := strings.TrimSpace(realIP)
+		if ip != "" {
+			return ip, true
+		}
+	}
+
+	// Try X-Forwarded-For (use leftmost/first IP)
 	forwarded := headers.Get(ForwardedFor)
 	if forwarded != "" {
 		ip := strings.TrimSpace(strings.Split(forwarded, ",")[0])
@@ -116,6 +126,7 @@ func GetForwardedFor(headers http.Header) (string, bool) {
 			return ip, true
 		}
 	}
+	
 	return "", false
 }
 
