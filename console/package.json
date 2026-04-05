@@ -39,7 +39,7 @@
     "file-saver": "^2.0.5",
     "flag-icons": "^7.1.0",
     "google-proto-files": "^4.0.0",
-    "google-protobuf": "3.20.1",
+    "google-protobuf": "3.21.4",
     "grpc-web": "1.4.2",
     "i18n-iso-countries": "^7.7.0",
     "libphonenumber-js": "^1.11.8",
