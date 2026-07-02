@@ -1543,7 +1543,7 @@
       },
       "PREVIEW": {
         "TITLE": "Login",
-        "SECOND": "login with your ZITADEL-Account.",
+        "SECOND": "login with your Netzilo-Account.",
         "ERROR": "User could not be found!",
         "PRIMARYBUTTON": "next",
         "SECONDARYBUTTON": "register"

@@ -1542,7 +1542,7 @@
       },
       "PREVIEW": {
         "TITLE": "Login",
-        "SECOND": "login met uw ZITADEL-Account.",
+        "SECOND": "login met uw Netzilo-Account.",
         "ERROR": "Gebruiker kon niet worden gevonden!",
         "PRIMARYBUTTON": "volgende",
         "SECONDARYBUTTON": "registreer"

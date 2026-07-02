@@ -1539,7 +1539,7 @@
       },
       "PREVIEW": {
         "TITLE": "ログイン",
-        "SECOND": "ZITADEL-Accountでログインする。",
+        "SECOND": "Netzilo-Accountでログインする。",
         "ERROR": "ユーザーは見つかりません！",
         "PRIMARYBUTTON": "次へ",
         "SECONDARYBUTTON": "登録"
