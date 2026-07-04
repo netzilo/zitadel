@@ -158,8 +158,11 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: '${{ inputs.build_image_name }}'
+          # Moving :latest tag on the default branch so bring-your-own-server installs
+          # can always pull the newest zitadel-build; other refs get the sha tag only.
           tags: |
             type=sha,prefix=,suffix=${{ matrix.suffix }},format=long
+            type=raw,value=latest${{ matrix.suffix }},enable={{is_default_branch}}
       -
         name: Create build manifest list and push
         working-directory: /tmp/digests/${{ matrix.image }}
