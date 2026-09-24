@@ -1,0 +1,68 @@
+InitCode:
+  Title: Kullanıcıyı Etkinleştir
+  PreHeader: Kullanıcıyı Etkinleştir
+  Subject: Kullanıcıyı Etkinleştir
+  Greeting: Merhaba {{.DisplayName}},
+  Text: Bu kullanıcı oluşturuldu. Oturum açmak için {{.PreferredLoginName}} kullanıcı adını kullanın. Etkinleştirme işlemini tamamlamak için lütfen aşağıdaki düğmeye tıklayın. (Kod {{.Code}}) Bu e-postayı siz talep etmediyseniz lütfen dikkate almayın.
+  ButtonText: Etkinleştirmeyi tamamla
+PasswordReset:
+  Title: Parolayı sıfırla
+  PreHeader: Parolayı sıfırla
+  Subject: Parolayı sıfırla
+  Greeting: Merhaba {{.DisplayName}},
+  Text: Bir parola sıfırlama isteği aldık. Parolanızı sıfırlamak için lütfen aşağıdaki düğmeyi kullanın. (Kod {{.Code}}) Bu e-postayı siz talep etmediyseniz lütfen dikkate almayın.
+  ButtonText: Parolayı sıfırla
+VerifyEmail:
+  Title: E-postayı doğrula
+  PreHeader: E-postayı doğrula
+  Subject: E-postayı doğrula
+  Greeting: Merhaba {{.DisplayName}},
+  Text: Yeni bir e-posta adresi eklendi. E-postanızı doğrulamak için lütfen aşağıdaki düğmeyi kullanın. (Kod {{.Code}}) Yeni bir e-posta eklemediyseniz lütfen bu e-postayı dikkate almayın.
+  ButtonText: E-postayı doğrula
+VerifyPhone:
+  Title: Telefonu doğrula
+  PreHeader: Telefonu doğrula
+  Subject: Telefonu doğrula
+  Greeting: Merhaba {{.DisplayName}},
+  Text: Yeni bir telefon numarası eklendi. Doğrulamak için lütfen şu kodu kullanın {{.Code}}
+  ButtonText: Telefonu doğrula
+VerifyEmailOTP:
+  Title: Tek Kullanımlık Parolayı Doğrula
+  PreHeader: Tek Kullanımlık Parolayı Doğrula
+  Subject: Tek Kullanımlık Parolayı Doğrula
+  Greeting: Merhaba {{.DisplayName}},
+  Text: Kimliğinizi doğrulamak için önümüzdeki beş dakika içinde {{.OTP}} tek kullanımlık parolasını kullanın ya da "Kimliği doğrula" düğmesine tıklayın.
+  ButtonText: Kimliği doğrula
+VerifySMSOTP:
+  Text: >-
+    {{.OTP}}, {{ .Domain }} için tek kullanımlık parolanızdır. Önümüzdeki {{.Expiry}} içinde kullanın.
+
+    @{{.Domain}} #{{.OTP}}
+DomainClaimed:
+  Title: Alan adı sahiplenildi
+  PreHeader: E-postayı / kullanıcı adını değiştir
+  Subject: Alan adı sahiplenildi
+  Greeting: Merhaba {{.DisplayName}},
+  Text: "{{.Domain}} alan adı bir kuruluş tarafından sahiplenildi. Mevcut kullanıcınız {{.Username}} bu kuruluşun üyesi değil. Bu nedenle oturum açtığınızda e-postanızı değiştirmeniz gerekecek. Bu oturum açma için geçici bir kullanıcı adı ({{.TempUsername}}) oluşturduk."
+  ButtonText: Oturum aç
+PasswordlessRegistration:
+  Title: Parolasız Oturum Açma Ekle
+  PreHeader: Parolasız Oturum Açma Ekle
+  Subject: Parolasız Oturum Açma Ekle
+  Greeting: Merhaba {{.DisplayName}},
+  Text: Parolasız oturum açma için bir belirteç ekleme isteği aldık. Parolasız oturum açma belirtecinizi ya da cihazınızı eklemek için lütfen aşağıdaki düğmeyi kullanın.
+  ButtonText: Parolasız oturum açma ekle
+PasswordChange:
+  Title: Kullanıcı parolası değiştirildi
+  PreHeader: Parolayı değiştir
+  Subject: Kullanıcı parolası değiştirildi
+  Greeting: Merhaba {{.DisplayName}},
+  Text: Kullanıcınızın parolası değiştirildi. Bu değişikliği siz yapmadıysanız lütfen parolanızı hemen sıfırlayın.
+  ButtonText: Oturum aç
+InviteUser:
+  Title: "{{.ApplicationName}} daveti"
+  PreHeader: "{{.ApplicationName}} daveti"
+  Subject: "{{.ApplicationName}} daveti"
+  Greeting: Merhaba {{.DisplayName}},
+  Text: "Kullanıcınız {{.ApplicationName}} uygulamasına davet edildi. Davet işlemini tamamlamak için lütfen aşağıdaki düğmeye tıklayın. Bu e-postayı siz talep etmediyseniz lütfen dikkate almayın."
+  ButtonText: Daveti kabul et

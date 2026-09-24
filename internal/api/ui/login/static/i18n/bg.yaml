@@ -260,6 +260,7 @@ RegistrationUser:
   Swedish: Svenska
   Indonesian: Bahasa Indonesia
   Hungarian: Magyar
+  Turkish: Türkçe
   GenderLabel: Пол
   Female: Женски пол
   Male: Мъжки
@@ -301,6 +302,7 @@ ExternalRegistrationUserOverview:
   Swedish: Svenska
   Indonesian: Bahasa Indonesia
   Hungarian: Magyar
+  Turkish: Türkçe
   TosAndPrivacyLabel: Правила и условия
   TosConfirm: Приемам
   TosLinkText: TOS
@@ -371,6 +373,7 @@ ExternalNotFound:
   Swedish: Svenska
   Indonesian: Bahasa Indonesia
   Hungarian: Magyar
+  Turkish: Türkçe
 DeviceAuth:
   Title: Упълномощаване на устройството
   UserCode:

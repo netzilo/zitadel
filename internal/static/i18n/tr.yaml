@@ -1,0 +1,1406 @@
+Errors:
+  Internal: Dahili bir hata oluştu
+  NoChangesFound: Değişiklik yok
+  OriginNotAllowed: Bu "Origin" değerine izin verilmiyor
+  IDMissing: Kimlik eksik
+  ResourceOwnerMissing: Kaynak sahibi kuruluş eksik
+  RemoveFailed: Kaldırılamadı
+  ProjectionName:
+    Invalid: Geçersiz projeksiyon adı
+  Assets:
+    EmptyKey: Varlık anahtarı boş
+    Store:
+      NotInitialized: Varlık deposu başlatılmamış
+      NotConfigured: Varlık deposu yapılandırılmamış
+    Bucket:
+      Internal: Kova oluşturulurken dahili hata
+      AlreadyExists: Kova zaten var
+      CreateFailed: Kova oluşturulamadı
+      ListFailed: Kovalar okunamadı
+      RemoveFailed: Kova silinemedi
+      SetPublicFailed: Kova herkese açık yapılamadı
+    Object:
+      PutFailed: Nesne oluşturulamadı
+      GetFailed: Nesne okunamadı
+      NotFound: Nesne bulunamadı
+      PresignedTokenFailed: İmzalı belirteç oluşturulamadı
+      ListFailed: Nesne listesi okunamadı
+      RemoveFailed: Nesne kaldırılamadı
+  Limit:
+    ExceedsDefault: Sınır, varsayılan sınırı aşıyor
+  Limits:
+    NotFound: Sınırlar bulunamadı
+    NoneSpecified: Sınır belirtilmedi
+    Instance:
+      Blocked: Örnek engellenmiş
+  Restrictions:
+    NoneSpecified: Kısıtlama belirtilmedi
+    DefaultLanguageMustBeAllowed: Varsayılan dile izin verilmesi gerekir
+  Language:
+    NotParsed: Dil ayrıştırılamadı
+    NotSupported: Dil desteklenmiyor
+    NotAllowed: Dile izin verilmiyor
+    Undefined: Dil tanımsız
+    Duplicate: Dillerde yinelenen değerler var
+  OIDCSettings:
+    NotFound: OIDC yapılandırması bulunamadı
+    AlreadyExists: OIDC yapılandırması zaten var
+  SecretGenerator:
+    AlreadyExists: Gizli anahtar üreteci zaten var
+    TypeMissing: Gizli anahtar üreteci türü eksik
+    NotFound: Gizli anahtar üreteci bulunamadı
+  SMSConfig:
+    NotFound: SMS yapılandırması bulunamadı
+    AlreadyActive: SMS yapılandırması zaten etkin
+    AlreadyDeactivated: SMS yapılandırması zaten devre dışı
+    NotExternalVerification: SMS yapılandırması kod doğrulamayı desteklemiyor
+  SMTP:
+    NotEmailMessage: ileti bir EmailMessage değil
+    RequiredAttributes: konu, alıcılar ve içerik ayarlanmalıdır; ancak bunların bazıları ya da tümü boş
+    CouldNotSplit: SMTP bağlantısı için ana bilgisayar ve bağlantı noktası ayrıştırılamadı
+    CouldNotDial: SMTP sunucusuyla iletişim kurulamadı; bağlantı noktasını ve güvenlik duvarı ayarlarını kontrol edin...
+    CouldNotDialTLS: SMTP sunucusuyla TLS üzerinden iletişim kurulamadı; bağlantı noktasını ve güvenlik duvarı ayarlarını kontrol edin...
+    CouldNotCreateClient: SMTP istemcisi oluşturulamadı
+    CouldNotStartTLS: TLS başlatılamadı
+    CouldNotAuth: SMTP kimlik doğrulaması eklenemedi; kullanıcı adınızın ve parolanızın doğru olduğunu kontrol edin. Doğruysa sağlayıcınız ZITADEL tarafından desteklenmeyen bir kimlik doğrulama yöntemi istiyor olabilir
+    CouldNotSetSender: gönderen ayarlanamadı
+    CouldNotSetRecipient: alıcı ayarlanamadı
+  SMTPConfig:
+    TestPassword: Test için parola bulunamadı
+    NotFound: SMTP yapılandırması bulunamadı
+    AlreadyExists: SMTP yapılandırması zaten var
+    AlreadyDeactivated: SMTP yapılandırması zaten devre dışı
+    SenderAdressNotCustomDomain: Gönderen adresi, örnekte özel alan adı olarak yapılandırılmış olmalıdır.
+    TestEmailNotFound: Test için e-posta adresi bulunamadı
+  Notification:
+    NoDomain: İleti için alan adı bulunamadı
+  User:
+    NotFound: Kullanıcı bulunamadı
+    AlreadyExists: Kullanıcı zaten var
+    NotFoundOnOrg: Kullanıcı seçilen kuruluşta bulunamadı
+    NotAllowedOrg: Kullanıcı gerekli kuruluşun üyesi değil
+    UserIDMissing: Kullanıcı kimliği eksik
+    UserIDWrong: "İstekteki kullanıcı, kimliği doğrulanan kullanıcıyla aynı değil"
+    DomainPolicyNil: Kuruluş politikası boş
+    EmailAsUsernameNotAllowed: E-postanın kullanıcı adı olarak kullanılmasına izin verilmiyor
+    Invalid: Kullanıcı bilgileri geçersiz
+    DomainNotAllowedAsUsername: Alan adı zaten ayrılmış ve kullanılamaz
+    AlreadyInactive: Kullanıcı zaten devre dışı
+    NotInactive: Kullanıcı devre dışı değil
+    CantDeactivateInitial: Başlangıç durumundaki kullanıcı yalnızca silinebilir, devre dışı bırakılamaz
+    ShouldBeActiveOrInitial: Kullanıcı etkin ya da başlangıç durumunda değil
+    AlreadyInitialised: Kullanıcı zaten etkinleştirilmiş
+    NotInitialised: Kullanıcı henüz etkinleştirilmemiş
+    NotLocked: Kullanıcı kilitli değil
+    NoChanges: Değişiklik bulunamadı
+    InitCodeNotFound: Etkinleştirme kodu bulunamadı
+    UsernameNotChanged: Kullanıcı adı değiştirilmedi
+    InvalidURLTemplate: URL şablonu geçersiz
+    Profile:
+      NotFound: Profil bulunamadı
+      NotChanged: Profil değiştirilmedi
+      Empty: Profil boş
+      FirstNameEmpty: Profildeki ad boş
+      LastNameEmpty: Profildeki soyad boş
+      IDMissing: Profil kimliği eksik
+    Email:
+      NotFound: E-posta bulunamadı
+      Invalid: E-posta geçersiz
+      AlreadyVerified: E-posta zaten doğrulanmış
+      NotChanged: E-posta değiştirilmedi
+      Empty: E-posta boş
+      IDMissing: E-posta kimliği eksik
+    Phone:
+      NotFound: Telefon bulunamadı
+      Invalid: Telefon geçersiz
+      AlreadyVerified: Telefon zaten doğrulanmış
+      Empty: Telefon boş
+      NotChanged: Telefon değiştirilmedi
+    Address:
+      NotFound: Adres bulunamadı
+      NotChanged: Adres değiştirilmedi
+    Machine:
+      Key:
+        NotFound: Makine anahtarı bulunamadı
+        AlreadyExisting: Makine anahtarı zaten var
+        Invalid: Açık anahtar, PEM kodlamalı PKIX biçiminde geçerli bir RSA açık anahtarı değil
+      Secret:
+        NotExisting: Gizli anahtar mevcut değil
+        Invalid: Gizli anahtar geçersiz
+        CouldNotGenerate: Gizli anahtar oluşturulamadı
+    PAT:
+      NotFound: Kişisel erişim belirteci bulunamadı
+    NotHuman: Kullanıcı bir kişi olmalıdır
+    NotMachine: Kullanıcı teknik bir kullanıcı olmalıdır
+    WrongType: Bu kullanıcı türü için izin verilmiyor
+    NotAllowedToLink: Kullanıcının harici oturum açma sağlayıcısıyla bağlanmasına izin verilmiyor
+    Username:
+      AlreadyExists: Kullanıcı adı zaten alınmış
+      Reserved: Kullanıcı adı zaten alınmış
+      Empty: Kullanıcı adı boş
+    Code:
+      Empty: Kod boş
+      NotFound: Kod bulunamadı
+      Expired: Kodun süresi doldu
+      GeneratorAlgNotSupported: Desteklenmeyen üretici algoritması
+      Invalid: Kod geçersiz
+    Password:
+      NotFound: Parola bulunamadı
+      Empty: Parola boş
+      Invalid: Parola geçersiz
+      NotSet: Kullanıcı bir parola belirlememiş
+      NotChanged: Yeni parola mevcut parolanızla aynı olamaz
+      NotSupported: Parola karma kodlaması desteklenmiyor. Bkz. https://zitadel.com/docs/concepts/architecture/secrets#hashed-secrets
+    PasswordComplexityPolicy:
+      NotFound: Parola politikası bulunamadı
+      MinLength: Parola çok kısa
+      MinLengthNotAllowed: Belirtilen en az uzunluğa izin verilmiyor
+      HasLower: Parola küçük harf içermelidir
+      HasUpper: Parola büyük harf içermelidir
+      HasNumber: Parola rakam içermelidir
+      HasSymbol: Parola sembol içermelidir
+    ExternalIDP:
+      Invalid: Harici kimlik sağlayıcı geçersiz
+      IDPConfigNotExisting: Kimlik sağlayıcı bu kuruluş için geçersiz
+      NotAllowed: Harici kimlik sağlayıcıya izin verilmiyor
+      MinimumExternalIDPNeeded: En az bir kimlik sağlayıcı eklenmelidir
+      AlreadyExists: Harici kimlik sağlayıcı zaten alınmış
+      NotFound: Harici kimlik sağlayıcı bulunamadı
+      LoginFailed: Harici kimlik sağlayıcıda oturum açma başarısız oldu
+    MFA:
+      OTP:
+        AlreadyReady: Tek kullanımlık parola (OTP) zaten kurulmuş
+        NotExisting: Tek kullanımlık parola (OTP) mevcut değil
+        NotReady: Tek kullanımlık parola (OTP) hazır değil
+        InvalidCode: Geçersiz kod
+      U2F:
+        NotExisting: U2F mevcut değil
+      Passwordless:
+        NotExisting: Parolasız oturum açma mevcut değil
+    WebAuthN:
+      NotFound: WebAuthn belirteci bulunamadı
+      BeginRegisterFailed: WebAuthn kaydı başlatılamadı
+      MarshalError: Veriler serileştirilirken hata oluştu
+      ErrorOnParseCredential: Kimlik bilgisi verileri ayrıştırılırken hata oluştu
+      CreateCredentialFailed: Kimlik bilgileri oluşturulurken hata oluştu
+      BeginLoginFailed: WebAuthn oturum açma başlatılamadı
+      ValidateLoginFailed: Oturum açma kimlik bilgileri doğrulanırken hata oluştu
+      CloneWarning: Kimlik bilgileri kopyalanmış olabilir
+    RefreshToken:
+      Invalid: Yenileme belirteci geçersiz
+      NotFound: Yenileme belirteci bulunamadı
+  Instance:
+    NotFound: Örnek bulunamadı
+    AlreadyExists: Örnek zaten var
+    NotChanged: Örnek değiştirilmedi
+  Org:
+    AlreadyExists: Kuruluş adı zaten alınmış
+    Invalid: Kuruluş geçersiz
+    AlreadyDeactivated: Kuruluş zaten devre dışı
+    AlreadyActive: Kuruluş zaten etkin
+    Empty: Kuruluş boş
+    NotFound: Kuruluş bulunamadı
+    NotChanged: Kuruluş değiştirilmedi
+    DefaultOrgNotDeletable: Varsayılan kuruluş silinemez
+    ZitadelOrgNotDeletable: ZITADEL projesini içeren kuruluş silinemez
+    InvalidDomain: Geçersiz alan adı
+    DomainMissing: Alan adı eksik
+    DomainNotOnOrg: Alan adı bu kuruluşta mevcut değil
+    DomainNotVerified: Alan adı doğrulanmamış
+    DomainAlreadyVerified: Alan adı zaten doğrulanmış
+    DomainVerificationTypeInvalid: Alan adı doğrulama türü geçersiz
+    DomainVerificationMissing: Alan adı doğrulaması henüz başlatılmamış
+    DomainVerificationFailed: Alan adı doğrulaması başarısız oldu
+    DomainVerificationTXTNotFound: Alan adınız için _zitadel-challenge TXT kaydı bulunamadı. Kaydı DNS sunucunuza eklediğinizi kontrol edin ya da yeni kaydın yayılmasını bekleyin
+    DomainVerificationTXTNoMatch: Alan adınız için _zitadel-challenge TXT kaydı bulundu ancak doğru belirteç metnini içermiyor. DNS sunucunuza doğru belirteci eklediğinizi kontrol edin ya da yeni kaydın yayılmasını bekleyin
+    DomainVerificationHTTPNotFound: Doğrulama dosyası beklenen URL'de bulunamadı. Dosyayı doğru konuma, okuma izniyle yüklediğinizi kontrol edin
+    DomainVerificationHTTPNoMatch: Doğrulama dosyası beklenen URL'de bulundu ancak doğru belirteç metnini içermiyor. İçeriğini kontrol edin
+    DomainVerificationTimeout: DNS sunucusu sorgulanırken zaman aşımı oluştu
+    PrimaryDomainNotDeletable: Birincil alan adı silinemez
+    DomainNotFound: Alan adı bulunamadı
+    MemberIDMissing: Üye kimliği eksik
+    MemberNotFound: Kuruluş üyesi bulunamadı
+    InvalidMember: Kuruluş üyesi geçersiz
+    UserIDMissing: Kullanıcı kimliği eksik
+    PolicyAlreadyExists: Politika zaten var
+    PolicyNotExisting: Politika mevcut değil
+    IdpInvalid: Kimlik sağlayıcı yapılandırması geçersiz
+    IdpNotExisting: Kimlik sağlayıcı yapılandırması mevcut değil
+    OIDCConfigInvalid: OIDC kimlik sağlayıcı yapılandırması geçersiz
+    IdpIsNotOIDC: Kimlik sağlayıcı yapılandırması OIDC türünde değil
+    Domain:
+      AlreadyExists: Alan adı zaten var
+      InvalidCharacter: Alan adında yalnızca alfasayısal karakterler, . ve - kullanılabilir
+      EmptyString: Geçersiz karakterler kaldırıldı ve geriye boş bir alan adı kaldı
+    IDP:
+      InvalidSearchQuery: Geçersiz arama sorgusu
+      ClientIDMissing: İstemci kimliği eksik
+      TeamIDMissing: Ekip kimliği eksik
+      KeyIDMissing: Anahtar kimliği eksik
+      PrivateKeyMissing: Özel anahtar eksik
+    LoginPolicy:
+      NotFound: Oturum açma politikası bulunamadı
+      Invalid: Oturum açma politikası geçersiz
+      RedirectURIInvalid: Varsayılan yönlendirme URI'si geçersiz
+      NotExisting: Oturum açma politikası mevcut değil
+      AlreadyExists: Oturum açma politikası zaten var
+      IdpProviderAlreadyExisting: Kimlik sağlayıcı zaten var
+      IdpProviderNotExisting: Kimlik sağlayıcı mevcut değil
+      RegistrationNotAllowed: Kayıt olmaya izin verilmiyor
+      UsernamePasswordNotAllowed: Kullanıcı adı / parola ile oturum açmaya izin verilmiyor
+      MFA:
+        AlreadyExists: Çok faktörlü doğrulama zaten var
+        NotExisting: Çok faktörlü doğrulama mevcut değil
+        Unspecified: Çok faktörlü doğrulama geçersiz
+    MailTemplate:
+      NotFound: Varsayılan e-posta şablonu bulunamadı
+      NotChanged: Varsayılan e-posta şablonu değiştirilmedi
+      AlreadyExists: Varsayılan e-posta şablonu zaten var
+      Invalid: Varsayılan e-posta şablonu geçersiz
+    CustomMessageText:
+      NotFound: Varsayılan ileti metni bulunamadı
+      NotChanged: Varsayılan ileti metni değiştirilmedi
+      AlreadyExists: Varsayılan ileti metni zaten var
+      Invalid: Varsayılan ileti metni geçersiz
+    PasswordComplexityPolicy:
+      NotFound: Parola karmaşıklığı politikası bulunamadı
+      Empty: Parola karmaşıklığı politikası boş
+      NotExisting: Parola karmaşıklığı politikası mevcut değil
+      AlreadyExists: Parola karmaşıklığı politikası zaten var
+    PasswordLockoutPolicy:
+      NotFound: Parola kilitleme politikası bulunamadı
+      Empty: Parola kilitleme politikası boş
+      NotExisting: Parola kilitleme politikası mevcut değil
+      AlreadyExists: Parola kilitleme politikası zaten var
+    PasswordAgePolicy:
+      NotFound: Parola geçerlilik süresi politikası bulunamadı
+      Empty: Parola geçerlilik süresi politikası boş
+      NotExisting: Parola geçerlilik süresi politikası mevcut değil
+      AlreadyExists: Parola geçerlilik süresi politikası zaten var
+    OrgIAMPolicy:
+      Empty: Kuruluş IAM politikası boş
+      NotExisting: Kuruluş IAM politikası mevcut değil
+      AlreadyExists: Kuruluş IAM politikası zaten var
+    NotificationPolicy:
+      NotFound: Bildirim politikası bulunamadı
+      NotChanged: Bildirim politikası değiştirilmedi
+      AlreadyExists: Bildirim politikası zaten var
+    LabelPolicy:
+      NotFound: Marka politikası bulunamadı
+      NotChanged: Marka politikası değiştirilmedi
+  Project:
+    ProjectIDMissing: Proje kimliği eksik
+    AlreadyExists: Proje bu kuruluşta zaten var
+    OrgNotExisting: Kuruluş mevcut değil
+    UserNotExisting: Kullanıcı mevcut değil
+    CouldNotGenerateClientSecret: İstemci gizli anahtarı oluşturulamadı
+    Invalid: Proje geçersiz
+    NotActive: Proje etkin değil
+    NotInactive: Proje devre dışı değil
+    NotFound: Proje bulunamadı
+    UserIDMissing: Kullanıcı kimliği eksik
+    Member:
+      NotFound: Proje üyesi bulunamadı
+      Invalid: Proje üyesi geçersiz
+      AlreadyExists: Proje üyesi zaten var
+      NotExisting: Proje üyesi mevcut değil
+    MinimumOneRoleNeeded: En az bir rol eklenmelidir
+    Role:
+      AlreadyExists: Rol zaten var
+      Invalid: Rol geçersiz
+      NotExisting: Rol mevcut değil
+    IDMissing: Kimlik eksik
+    App:
+      AlreadyExists: Uygulama zaten var
+      NotFound: Uygulama bulunamadı
+      Invalid: Uygulama geçersiz
+      NotExisting: Uygulama mevcut değil
+      NotActive: Uygulama etkin değil
+      NotInactive: Uygulama devre dışı değil
+      OIDCConfigInvalid: OIDC yapılandırması geçersiz
+      APIConfigInvalid: API yapılandırması geçersiz
+      SAMLConfigInvalid: SAML yapılandırması geçersiz
+      IsNotOIDC: Uygulama OIDC türünde değil
+      IsNotAPI: Uygulama API türünde değil
+      IsNotSAML: Uygulama SAML türünde değil
+      SAMLMetadataMissing: SAML meta verisi eksik
+      SAMLMetadataFormat: SAML meta verisi biçim hatası
+      SAMLEntityIDAlreadyExisting: SAML EntityID zaten var
+      OIDCAuthMethodNoSecret: Seçilen OIDC kimlik doğrulama yöntemi gizli anahtar gerektirmiyor
+      APIAuthMethodNoSecret: Seçilen API kimlik doğrulama yöntemi gizli anahtar gerektirmiyor
+      AuthMethodNoPrivateKeyJWT: Seçilen kimlik doğrulama yöntemi anahtar gerektirmiyor
+      ClientSecretInvalid: İstemci gizli anahtarı geçersiz
+      Key:
+        AlreadyExisting: Uygulama anahtarı zaten var
+        NotFound: Uygulama anahtarı bulunamadı
+    RequiredFieldsMissing: Bazı zorunlu alanlar eksik
+    Grant:
+      AlreadyExists: Proje yetkisi zaten var
+      NotFound: Yetki bulunamadı
+      Invalid: Proje yetkisi geçersiz
+      NotExisting: Proje yetkisi mevcut değil
+      HasNotExistingRole: Rollerden biri projede mevcut değil
+      NotActive: Proje yetkisi etkin değil
+      NotInactive: Proje yetkisi devre dışı değil
+  IAM:
+    NotFound: Örnek bulunamadı. Alan adını doğru yazdığınızdan emin olun. Bkz. https://zitadel.com/docs/apis/introduction#domains
+    Member:
+      RolesNotChanged: Roller değiştirilmedi
+    MemberInvalid: Üye geçersiz
+    MemberAlreadyExisting: Üye zaten var
+    MemberNotExisting: Üye mevcut değil
+    IDMissing: Kimlik eksik
+    IAMProjectIDMissing: IAM proje kimliği eksik
+    IamProjectAlreadySet: IAM proje kimliği zaten ayarlanmış
+    IdpInvalid: Kimlik sağlayıcı yapılandırması geçersiz
+    IdpNotExisting: Kimlik sağlayıcı yapılandırması mevcut değil
+    OIDCConfigInvalid: OIDC kimlik sağlayıcı yapılandırması geçersiz
+    IdpIsNotOIDC: Kimlik sağlayıcı yapılandırması OIDC türünde değil
+    LoginPolicyInvalid: Oturum açma politikası geçersiz
+    LoginPolicyNotExisting: Oturum açma politikası mevcut değil
+    IdpProviderInvalid: Kimlik sağlayıcı geçersiz
+    LoginPolicy:
+      NotFound: Varsayılan oturum açma politikası bulunamadı
+      NotChanged: Varsayılan oturum açma politikası değiştirilmedi
+      NotExisting: Varsayılan oturum açma politikası mevcut değil
+      AlreadyExists: Varsayılan oturum açma politikası zaten var
+      RedirectURIInvalid: Varsayılan yönlendirme URI'si geçersiz
+      MFA:
+        AlreadyExists: Çok faktörlü doğrulama zaten var
+        NotExisting: Çok faktörlü doğrulama mevcut değil
+        Unspecified: Çok faktörlü doğrulama geçersiz
+      IDP:
+        AlreadyExists: Kimlik sağlayıcı zaten var
+        NotExisting: Kimlik sağlayıcı mevcut değil
+        Invalid: Kimlik sağlayıcı geçersiz
+      IDPConfig:
+        AlreadyExists: Kimlik sağlayıcı yapılandırması zaten var
+        NotInactive: Kimlik sağlayıcı yapılandırması devre dışı değil
+        NotActive: Kimlik sağlayıcı yapılandırması etkin değil
+    LabelPolicy:
+      NotFound: Varsayılan marka politikası bulunamadı
+      NotChanged: Varsayılan marka politikası değiştirilmedi
+    MailTemplate:
+      NotFound: Varsayılan e-posta şablonu bulunamadı
+      NotChanged: Varsayılan e-posta şablonu değiştirilmedi
+      AlreadyExists: Varsayılan e-posta şablonu zaten var
+      Invalid: Varsayılan e-posta şablonu geçersiz
+    CustomMessageText:
+      NotFound: Varsayılan ileti metni bulunamadı
+      NotChanged: Varsayılan ileti metni değiştirilmedi
+      AlreadyExists: Varsayılan ileti metni zaten var
+      Invalid: Varsayılan ileti metni geçersiz
+    PasswordComplexityPolicy:
+      NotFound: Varsayılan parola karmaşıklığı politikası bulunamadı
+      NotExisting: Varsayılan parola karmaşıklığı politikası mevcut değil
+      AlreadyExists: Varsayılan parola karmaşıklığı politikası zaten var
+      Empty: Varsayılan parola karmaşıklığı politikası boş
+      NotChanged: Varsayılan parola karmaşıklığı politikası değiştirilmedi
+    PasswordAgePolicy:
+      NotFound: Varsayılan parola geçerlilik süresi politikası bulunamadı
+      NotExisting: Varsayılan parola geçerlilik süresi politikası mevcut değil
+      AlreadyExists: Varsayılan parola geçerlilik süresi politikası zaten var
+      Empty: Varsayılan parola geçerlilik süresi politikası boş
+      NotChanged: Varsayılan parola geçerlilik süresi politikası değiştirilmedi
+    PasswordLockoutPolicy:
+      NotFound: Varsayılan parola kilitleme politikası bulunamadı
+      NotExisting: Varsayılan parola kilitleme politikası mevcut değil
+      AlreadyExists: Varsayılan parola kilitleme politikası zaten var
+      Empty: Varsayılan parola kilitleme politikası boş
+      NotChanged: Varsayılan parola kilitleme politikası değiştirilmedi
+    DomainPolicy:
+      NotFound: Kuruluş IAM politikası bulunamadı
+      Empty: Kuruluş IAM politikası boş
+      NotExisting: Kuruluş IAM politikası mevcut değil
+      AlreadyExists: Kuruluş IAM politikası zaten var
+      NotChanged: Kuruluş IAM politikası değiştirilmedi
+    NotificationPolicy:
+      NotFound: Varsayılan bildirim politikası bulunamadı
+      NotChanged: Varsayılan bildirim politikası değiştirilmedi
+      AlreadyExists: Varsayılan bildirim politikası zaten var
+  Policy:
+    AlreadyExists: Politika zaten var
+    Label:
+      Invalid:
+        PrimaryColor: Ana renk geçerli bir onaltılık renk değeri değil
+        BackgroundColor: Arka plan rengi geçerli bir onaltılık renk değeri değil
+        WarnColor: Uyarı rengi geçerli bir onaltılık renk değeri değil
+        FontColor: Yazı tipi rengi geçerli bir onaltılık renk değeri değil
+        PrimaryColorDark: Ana renk (koyu mod) geçerli bir onaltılık renk değeri değil
+        BackgroundColorDark: Arka plan rengi (koyu mod) geçerli bir onaltılık renk değeri değil
+        WarnColorDark: Uyarı rengi (koyu mod) geçerli bir onaltılık renk değeri değil
+        FontColorDark: Yazı tipi rengi (koyu mod) geçerli bir onaltılık renk değeri değil
+  UserGrant:
+    AlreadyExists: Kullanıcı yetkisi zaten var
+    NotFound: Kullanıcı yetkisi bulunamadı
+    Invalid: Kullanıcı yetkisi geçersiz
+    NotChanged: Kullanıcı yetkisi değiştirilmedi
+    IDMissing: Kimlik eksik
+    NotActive: Kullanıcı yetkisi etkin değil
+    NotInactive: Kullanıcı yetkisi devre dışı değil
+    NoPermissionForProject: Kullanıcının bu projede izni yok
+    RoleKeyNotFound: Rol bulunamadı
+  Member:
+    AlreadyExists: Üye zaten var
+  IDPConfig:
+    AlreadyExists: Bu adda bir kimlik sağlayıcı yapılandırması zaten var
+    NotExisting: Kimlik sağlayıcı yapılandırması mevcut değil
+  Changes:
+    NotFound: Geçmiş bulunamadı
+    AuditRetention: Geçmiş, denetim günlüğü saklama süresinin dışında
+  Token:
+    NotFound: Belirteç bulunamadı
+    Invalid: Belirteç geçersiz
+  UserSession:
+    NotFound: Kullanıcı oturumu bulunamadı
+  Key:
+    NotFound: Anahtar bulunamadı
+    ExpireBeforeNow: Son kullanma tarihi geçmişte
+  Login:
+    LoginPolicy:
+      MFA:
+        ForceAndNotConfigured: Çok faktörlü doğrulama zorunlu olarak yapılandırılmış ancak kullanılabilir bir sağlayıcı yapılandırılmamış. Lütfen sistem yöneticinizle iletişime geçin.
+  Step:
+    Started:
+      AlreadyExists: Başlatılan adım zaten var
+    Done:
+      AlreadyExists: Tamamlanan adım zaten var
+  CustomText:
+    AlreadyExists: Özel metin zaten var
+    Invalid: Özel metin geçersiz
+    NotFound: Özel metin bulunamadı
+  TranslationFile:
+    ReadError: Çeviri dosyası okunurken hata oluştu
+    MergeError: Çeviri dosyası özel çevirilerle birleştirilemedi
+    NotFound: Çeviri dosyası mevcut değil
+  Metadata:
+    NotFound: Meta veri bulunamadı
+    NoData: Meta veri listesi boş
+    Invalid: Meta veri geçersiz
+    KeyNotExisting: Bir ya da daha fazla anahtar mevcut değil
+  Action:
+    Invalid: Eylem geçersiz
+    NotFound: Eylem bulunamadı
+    NotActive: Eylem etkin değil
+    NotInactive: Eylem devre dışı değil
+    MaxAllowed: Daha fazla etkin eyleme izin verilmiyor
+    NotEnabled: '"Eylem" özelliği etkin değil'
+  Flow:
+    FlowTypeMissing: Akış türü eksik
+    Empty: Akış zaten boş
+    WrongTriggerType: Tetikleyici türü geçersiz
+    NoChanges: Değişiklik yok
+    ActionIDsNotExist: Eylem kimlikleri mevcut değil
+  Query:
+    CloseRows: SQL ifadesi tamamlanamadı
+    SQLStatement: SQL ifadesi oluşturulamadı
+    InvalidRequest: İstek geçersiz
+    TooManyNestingLevels: Sorguda çok fazla iç içe düzey var (en fazla 20)
+    LimitExceeded: Sınır aşıldı
+  Quota:
+    AlreadyExists: Bu birim için kota zaten var
+    NotFound: Bu birim için kota bulunamadı
+    Invalid:
+      CallURL: Kota çağrı URL'si geçersiz
+      Percent: Kota yüzdesi 1'den küçük
+      Unimplemented: Bu birim için kotalar uygulanmamış
+      Amount: Kota miktarı 1'den küçük
+      ResetInterval: Kota sıfırlama aralığı bir dakikadan kısa
+      Noop: Bildirimsiz ve sınırsız bir kotanın etkisi yoktur
+    Access:
+      Exhausted: Kimliği doğrulanmış istekler için kota tükendi
+    Execution:
+      Exhausted: Yürütme saniyeleri için kota tükendi
+  LogStore:
+    Access:
+      StorageFailed: Erişim günlüğü veritabanına kaydedilemedi
+      ScanFailed: Kimliği doğrulanmış isteklerin kullanımı sorgulanamadı
+    Execution:
+      StorageFailed: Eylem yürütme günlüğü veritabanına kaydedilemedi
+      ScanFailed: Eylem yürütme saniyelerinin kullanımı sorgulanamadı
+  Session:
+    NotExisting: Oturum mevcut değil
+    Terminated: Oturum zaten sonlandırılmış
+    Expired: Oturumun süresi doldu
+    PositiveLifetime: Oturum süresi 0'dan küçük olamaz
+    Token:
+      Invalid: Oturum belirteci geçersiz
+    WebAuthN:
+      NoChallenge: Oturumda WebAuthn isteği yok
+  Intent:
+    IDPMissing: İstekte kimlik sağlayıcı kimliği eksik
+    IDPInvalid: Kimlik sağlayıcı bu istek için geçersiz
+    ResponseInvalid: Kimlik sağlayıcı yanıtı geçersiz
+    MissingSingleMappingAttribute: Kimlik sağlayıcı yanıtı eşleme özniteliğini içermiyor ya da birden fazla değer içeriyor
+    SuccessURLMissing: İstekte başarı URL'si eksik
+    FailureURLMissing: İstekte hata URL'si eksik
+    StateMissing: İstekte state parametresi eksik
+    NotStarted: Intent başlatılmamış ya da zaten sonlandırılmış
+    NotSucceeded: Intent başarıyla tamamlanmamış
+    TokenCreationFailed: Belirteç oluşturulamadı
+    InvalidToken: Intent belirteci geçersiz
+    OtherUser: Intent başka bir kullanıcı için oluşturulmuş
+  AuthRequest:
+    AlreadyExists: Kimlik doğrulama isteği zaten var
+    NotExisting: Kimlik doğrulama isteği mevcut değil
+    WrongLoginClient: Kimlik doğrulama isteği başka bir oturum açma istemcisi tarafından oluşturulmuş
+  OIDCSession:
+    RefreshTokenInvalid: Yenileme belirteci geçersiz
+    Token:
+      Invalid: Belirteç geçersiz
+      Expired: Belirtecin süresi doldu
+    InvalidClient: Belirteç bu istemci için verilmemiş
+  Feature:
+    NotExisting: Özellik mevcut değil
+    TypeNotSupported: Özellik türü desteklenmiyor
+    InvalidValue: Bu özellik için geçersiz değer
+  Target:
+    Invalid: Hedef geçersiz
+    NoTimeout: Hedefin zaman aşımı yok
+    InvalidURL: Hedefin URL'si geçersiz
+    NotFound: Hedef bulunamadı
+  Execution:
+    ConditionInvalid: Yürütme koşulu geçersiz
+    Invalid: Yürütme geçersiz
+    NotFound: Yürütme bulunamadı
+    IncludeNotFound: İçerme bulunamadı
+    NoTargets: Hedef tanımlanmamış
+    Failed: Yürütme başarısız oldu
+    ResponseIsNotValidJSON: Yanıt geçerli bir JSON değil
+  UserSchema:
+    NotEnabled: '"Kullanıcı Şeması" özelliği etkin değil'
+    Type:
+      Missing: Kullanıcı şeması türü eksik
+      AlreadyExists: Kullanıcı şeması türü zaten var
+    Authenticator:
+      Invalid: Geçersiz kimlik doğrulayıcı türü
+    NotActive: Kullanıcı şeması etkin değil
+    NotInactive: Kullanıcı şeması devre dışı değil
+    NotExists: Kullanıcı şeması mevcut değil
+    ID:
+      Missing: Kullanıcı şeması kimliği eksik
+    Invalid: Kullanıcı şeması geçersiz
+    Data:
+      Invalid: Veriler kullanıcı şeması için geçersiz
+  TokenExchange:
+    FeatureDisabled: Belirteç değişimi özelliği örneğiniz için devre dışı. https://zitadel.com/docs/apis/resources/feature_service_v2/feature-service-set-instance-features
+    Token:
+      Missing: Belirteç eksik
+      Invalid: Belirteç geçersiz
+      TypeMissing: Belirteç türü eksik
+      TypeNotAllowed: Belirteç türüne izin verilmiyor
+      TypeNotSupported: Belirteç türü desteklenmiyor
+      NotForAPI: Kimliğe bürünme belirteçlerine API için izin verilmiyor
+    Impersonation:
+      PolicyDisabled: Kimliğe bürünme, örneğin güvenlik politikasında devre dışı
+  WebKey:
+    ActiveDelete: Etkin web anahtarı silinemez
+    Config: Geçersiz web anahtarı yapılandırması
+    Duplicate: Web anahtarı kimliği benzersiz değil
+    FeatureDisabled: Web anahtarı özelliği devre dışı
+    NoActive: Etkin web anahtarı bulunamadı
+    NotFound: Web anahtarı bulunamadı
+
+AggregateTypes:
+  action: Eylem
+  instance: Örnek
+  key_pair: Anahtar çifti
+  org: Kuruluş
+  project: Proje
+  user: Kullanıcı
+  usergrant: Kullanıcı yetkisi
+  quota: Kota
+  feature: Özellik
+  target: Hedef
+  execution: Yürütme
+  user_schema: Kullanıcı şeması
+  auth_request: Kimlik doğrulama isteği
+  device_auth: Cihaz yetkilendirme
+  idpintent: Kimlik sağlayıcı intent'i
+  limits: Sınırlar
+  milestone: Kilometre taşı
+  oidc_session: OIDC oturumu
+  restrictions: Kısıtlamalar
+  system: Sistem
+  session: Oturum
+  web_key: Web anahtarı
+
+EventTypes:
+  execution:
+    set: Yürütme ayarlandı
+    removed: Yürütme silindi
+  target:
+    added: Hedef oluşturuldu
+    changed: Hedef değiştirildi
+    removed: Hedef silindi
+  user:
+    added: Kullanıcı eklendi
+    selfregistered: Kullanıcı kendisi kaydoldu
+    initialization:
+      code:
+        added: Etkinleştirme kodu oluşturuldu
+        sent: Etkinleştirme kodu gönderildi
+      check:
+        succeeded: Etkinleştirme denetimi başarılı oldu
+        failed: Etkinleştirme denetimi başarısız oldu
+    token:
+      added: Erişim belirteci oluşturuldu
+      v2.added: Erişim belirteci oluşturuldu
+      removed: Erişim belirteci kaldırıldı
+    impersonated: Kullanıcının kimliğine bürünüldü
+    username:
+      reserved: Kullanıcı adı ayrıldı
+      released: Kullanıcı adı serbest bırakıldı
+      changed: Kullanıcı adı değiştirildi
+    email:
+      reserved: E-posta adresi ayrıldı
+      released: E-posta adresi serbest bırakıldı
+      changed: E-posta adresi değiştirildi
+      verified: E-posta adresi doğrulandı
+      verification:
+        failed: E-posta adresi doğrulaması başarısız oldu
+      code:
+        added: E-posta adresi doğrulama kodu oluşturuldu
+        sent: E-posta adresi doğrulama kodu gönderildi
+    machine:
+      added: Teknik kullanıcı eklendi
+      changed: Teknik kullanıcı değiştirildi
+      key:
+        added: Anahtar eklendi
+        removed: Anahtar kaldırıldı
+      secret:
+        set: Gizli anahtar ayarlandı
+        updated: Gizli anahtar karması güncellendi
+        removed: Gizli anahtar kaldırıldı
+        check:
+          succeeded: Gizli anahtar denetimi başarılı oldu
+          failed: Gizli anahtar denetimi başarısız oldu
+    human:
+      added: Kişi eklendi
+      selfregistered: Kişi kendisi kaydoldu
+      avatar:
+        added: Avatar eklendi
+        removed: Avatar kaldırıldı
+      initialization:
+        code:
+          added: Etkinleştirme kodu oluşturuldu
+          sent: Etkinleştirme kodu gönderildi
+        check:
+          succeeded: Etkinleştirme denetimi başarılı oldu
+          failed: Etkinleştirme denetimi başarısız oldu
+      invite:
+        code:
+          added: Davet kodu oluşturuldu
+          sent: Davet kodu gönderildi
+        check:
+          succeeded: Davet denetimi başarılı oldu
+          failed: Davet denetimi başarısız oldu
+      username:
+        reserved: Kullanıcı adı ayrıldı
+        released: Kullanıcı adı serbest bırakıldı
+      email:
+        changed: E-posta adresi değiştirildi
+        verified: E-posta adresi doğrulandı
+        verification:
+          failed: E-posta adresi doğrulaması başarısız oldu
+        code:
+          added: E-posta adresi doğrulama kodu oluşturuldu
+          sent: E-posta adresi doğrulama kodu gönderildi
+      password:
+        changed: Parola değiştirildi
+        code:
+          added: Parola kodu oluşturuldu
+          sent: Parola kodu gönderildi
+        check:
+          succeeded: Parola denetimi başarılı oldu
+          failed: Parola denetimi başarısız oldu
+        change:
+          sent: Parola değişikliği gönderildi
+        hash:
+          updated: Parola karması güncellendi
+      externallogin:
+        check:
+          succeeded: Harici oturum açma başarılı oldu
+      externalidp:
+        added: Harici kimlik sağlayıcı eklendi
+        removed: Harici kimlik sağlayıcı kaldırıldı
+        cascade:
+          removed: Harici kimlik sağlayıcı zincirleme kaldırıldı
+        id:
+          migrated: Kimlik sağlayıcıdaki harici kullanıcı kimliği taşındı
+      phone:
+        changed: Telefon numarası değiştirildi
+        verified: Telefon numarası doğrulandı
+        verification:
+          failed: Telefon numarası doğrulaması başarısız oldu
+        code:
+          added: Telefon numarası kodu oluşturuldu
+          sent: Telefon numarası kodu gönderildi
+        removed: Telefon numarası kaldırıldı
+      profile:
+        changed: Kullanıcı profili değiştirildi
+      address:
+        changed: Kullanıcı adresi değiştirildi
+      mfa:
+        otp:
+          added: Çok faktörlü OTP eklendi
+          verified: Çok faktörlü OTP doğrulandı
+          removed: Çok faktörlü OTP kaldırıldı
+          check:
+            succeeded: Çok faktörlü OTP denetimi başarılı oldu
+            failed: Çok faktörlü OTP denetimi başarısız oldu
+          sms:
+            added: Çok faktörlü OTP SMS eklendi
+            removed: Çok faktörlü OTP SMS kaldırıldı
+            code:
+              added: Çok faktörlü OTP SMS kodu eklendi
+              sent: Çok faktörlü OTP SMS kodu gönderildi
+            check:
+              succeeded: Çok faktörlü OTP SMS denetimi başarılı oldu
+              failed: Çok faktörlü OTP SMS denetimi başarısız oldu
+          email:
+            added: Çok faktörlü OTP e-postası eklendi
+            removed: Çok faktörlü OTP e-postası kaldırıldı
+            code:
+              added: Çok faktörlü OTP e-posta kodu eklendi
+              sent: Çok faktörlü OTP e-posta kodu gönderildi
+            check:
+              succeeded: Çok faktörlü OTP e-posta denetimi başarılı oldu
+              failed: Çok faktörlü OTP e-posta denetimi başarısız oldu
+        u2f:
+          token:
+            added: Çok faktörlü U2F belirteci eklendi
+            verified: Çok faktörlü U2F belirteci doğrulandı
+            removed: Çok faktörlü U2F belirteci kaldırıldı
+            begin:
+              login: Çok faktörlü U2F denetimi başlatıldı
+            check:
+              succeeded: Çok faktörlü U2F denetimi başarılı oldu
+              failed: Çok faktörlü U2F denetimi başarısız oldu
+            signcount:
+              changed: Çok faktörlü U2F belirtecinin sayaç değeri değiştirildi
+        init:
+          skipped: Çok faktörlü doğrulama kurulumu atlandı
+      passwordless:
+        token:
+          added: Parolasız oturum açma belirteci eklendi
+          verified: Parolasız oturum açma belirteci doğrulandı
+          removed: Parolasız oturum açma belirteci kaldırıldı
+          begin:
+            login: Parolasız oturum açma denetimi başlatıldı
+          check:
+            succeeded: Parolasız oturum açma denetimi başarılı oldu
+            failed: Parolasız oturum açma denetimi başarısız oldu
+          signcount:
+            changed: Parolasız oturum açma belirtecinin sayaç değeri değiştirildi
+        initialization:
+          code:
+            added: Parolasız kurulum kodu eklendi
+            sent: Parolasız kurulum kodu gönderildi
+            requested: Parolasız kurulum kodu istendi
+            check:
+              succeeded: Parolasız kurulum kodu başarıyla denetlendi
+              failed: Parolasız kurulum kodu denetimi başarısız oldu
+      signed:
+        out: Kullanıcı oturumu kapattı
+      refresh:
+        token:
+          added: Yenileme belirteci oluşturuldu
+          renewed: Yenileme belirteci yenilendi
+          removed: Yenileme belirteci kaldırıldı
+    locked: Kullanıcı kilitlendi
+    unlocked: Kullanıcının kilidi açıldı
+    deactivated: Kullanıcı devre dışı bırakıldı
+    reactivated: Kullanıcı yeniden etkinleştirildi
+    removed: Kullanıcı kaldırıldı
+    password:
+      changed: Parola değiştirildi
+      code:
+        added: Parola kodu oluşturuldu
+        sent: Parola kodu gönderildi
+      check:
+        succeeded: Parola denetimi başarılı oldu
+        failed: Parola denetimi başarısız oldu
+    phone:
+      changed: Telefon numarası değiştirildi
+      verified: Telefon numarası doğrulandı
+      verification:
+        failed: Telefon numarası doğrulaması başarısız oldu
+      code:
+        added: Telefon numarası kodu oluşturuldu
+        sent: Telefon numarası kodu gönderildi
+
+    profile:
+      changed: Kullanıcı profili değiştirildi
+    address:
+      changed: Kullanıcı adresi değiştirildi
+    mfa:
+      otp:
+        added: Çok faktörlü OTP eklendi
+        verified: Çok faktörlü OTP doğrulandı
+        removed: Çok faktörlü OTP kaldırıldı
+        check:
+          succeeded: Çok faktörlü OTP denetimi başarılı oldu
+          failed: Çok faktörlü OTP denetimi başarısız oldu
+        init:
+          skipped: Çok faktörlü OTP kurulumu atlandı
+      init:
+        skipped: Çok faktörlü doğrulama kurulumu atlandı
+    signed:
+      out: Kullanıcı oturumu kapattı
+    grant:
+      added: Yetki eklendi
+      changed: Yetki değiştirildi
+      removed: Yetki kaldırıldı
+      deactivated: Yetki devre dışı bırakıldı
+      reactivated: Yetki yeniden etkinleştirildi
+      reserved: Yetki ayrıldı
+      released: Yetki serbest bırakıldı
+      cascade:
+        removed: Yetki kaldırıldı
+        changed: Yetki değiştirildi
+    metadata:
+      set: Kullanıcı meta verisi ayarlandı
+      removed: Kullanıcı meta verisi kaldırıldı
+      removed.all: Tüm kullanıcı meta verileri kaldırıldı
+    domain:
+      claimed: Alan adı sahiplenildi
+      claimed.sent: Alan adı sahiplenme bildirimi gönderildi
+    pat:
+      added: Kişisel erişim belirteci eklendi
+      removed: Kişisel erişim belirteci kaldırıldı
+  org:
+    added: Kuruluş eklendi
+    changed: Kuruluş değiştirildi
+    deactivated: Kuruluş devre dışı bırakıldı
+    reactivated: Kuruluş yeniden etkinleştirildi
+    removed: Kuruluş kaldırıldı
+    domain:
+      added: Alan adı eklendi
+      verification:
+        added: Alan adı doğrulaması eklendi
+        failed: Alan adı doğrulaması başarısız oldu
+      verified: Alan adı doğrulandı
+      removed: Alan adı kaldırıldı
+      primary:
+        set: Birincil alan adı ayarlandı
+      reserved: Alan adı ayrıldı
+      released: Alan adı serbest bırakıldı
+    name:
+      reserved: Kuruluş adı ayrıldı
+      released: Kuruluş adı serbest bırakıldı
+    member:
+      added: Kuruluş üyesi eklendi
+      changed: Kuruluş üyesi değiştirildi
+      removed: Kuruluş üyesi kaldırıldı
+      cascade:
+        removed: Kuruluş üyesi zincirleme kaldırıldı
+    iam:
+      policy:
+        added: Sistem politikası eklendi
+        changed: Sistem politikası değiştirildi
+        removed: Sistem politikası kaldırıldı
+    idp:
+      config:
+        added: Kimlik sağlayıcı yapılandırması eklendi
+        changed: Kimlik sağlayıcı yapılandırması değiştirildi
+        removed: Kimlik sağlayıcı yapılandırması kaldırıldı
+        deactivated: Kimlik sağlayıcı yapılandırması devre dışı bırakıldı
+        reactivated: Kimlik sağlayıcı yapılandırması yeniden etkinleştirildi
+      oidc:
+        config:
+          added: OIDC kimlik sağlayıcı yapılandırması eklendi
+          changed: OIDC kimlik sağlayıcı yapılandırması değiştirildi
+      saml:
+        config:
+          added: SAML kimlik sağlayıcı yapılandırması eklendi
+          changed: SAML kimlik sağlayıcı yapılandırması değiştirildi
+      jwt:
+        config:
+          added: JWT kimlik sağlayıcı yapılandırması eklendi
+          changed: JWT kimlik sağlayıcı yapılandırması değiştirildi
+    customtext:
+      set: Özel metin ayarlandı
+      removed: Özel metin kaldırıldı
+      template:
+        removed: Özel metin şablonu kaldırıldı
+    policy:
+      login:
+        added: Oturum açma politikası eklendi
+        changed: Oturum açma politikası değiştirildi
+        removed: Oturum açma politikası kaldırıldı
+        idpprovider:
+          added: Kimlik sağlayıcı oturum açma politikasına eklendi
+          removed: Kimlik sağlayıcı oturum açma politikasından kaldırıldı
+          cascade:
+            removed: Kimlik sağlayıcı oturum açma politikasından zincirleme kaldırıldı
+        secondfactor:
+          added: İkinci faktör oturum açma politikasına eklendi
+          removed: İkinci faktör oturum açma politikasından kaldırıldı
+        multifactor:
+          added: Çok faktörlü doğrulama oturum açma politikasına eklendi
+          removed: Çok faktörlü doğrulama oturum açma politikasından kaldırıldı
+      password:
+        complexity:
+          added: Parola karmaşıklığı politikası eklendi
+          changed: Parola karmaşıklığı politikası değiştirildi
+          removed: Parola karmaşıklığı politikası kaldırıldı
+        age:
+          added: Parola geçerlilik süresi politikası eklendi
+          changed: Parola geçerlilik süresi politikası değiştirildi
+          removed: Parola geçerlilik süresi politikası kaldırıldı
+        lockout:
+          added: Parola kilitleme politikası eklendi
+          changed: Parola kilitleme politikası değiştirildi
+          removed: Parola kilitleme politikası kaldırıldı
+      label:
+        added: Marka politikası eklendi
+        changed: Marka politikası değiştirildi
+        activated: Marka politikası etkinleştirildi
+        removed: Marka politikası kaldırıldı
+        logo:
+          added: Marka politikasına logo eklendi
+          removed: Marka politikasından logo kaldırıldı
+          dark:
+            added: Marka politikasına logo (koyu mod) eklendi
+            removed: Marka politikasından logo (koyu mod) kaldırıldı
+        icon:
+          added: Marka politikasına simge eklendi
+          removed: Marka politikasından simge kaldırıldı
+          dark:
+            added: Marka politikasına simge (koyu mod) eklendi
+            removed: Marka politikasından simge (koyu mod) kaldırıldı
+        font:
+          added: Marka politikasına yazı tipi eklendi
+          removed: Marka politikasından yazı tipi kaldırıldı
+        assets:
+          removed: Marka politikasından varlıklar kaldırıldı
+      privacy:
+        added: Gizlilik politikası ve hizmet şartları eklendi
+        changed: Gizlilik politikası ve hizmet şartları değiştirildi
+        removed: Gizlilik politikası ve hizmet şartları kaldırıldı
+      domain:
+        added: Alan adı politikası eklendi
+        changed: Alan adı politikası değiştirildi
+        removed: Alan adı politikası kaldırıldı
+      lockout:
+        added: Kilitleme politikası eklendi
+        changed: Kilitleme politikası değiştirildi
+        removed: Kilitleme politikası kaldırıldı
+      notification:
+        added: Bildirim politikası eklendi
+        changed: Bildirim politikası değiştirildi
+        removed: Bildirim politikası kaldırıldı
+    flow:
+      trigger_actions:
+        set: Eylem ayarlandı
+        cascade:
+          removed: Eylemler zincirleme kaldırıldı
+        removed: Eylemler kaldırıldı
+      cleared: Akış temizlendi
+    mail:
+      template:
+        added: E-posta şablonu eklendi
+        changed: E-posta şablonu değiştirildi
+        removed: E-posta şablonu kaldırıldı
+      text:
+        added: E-posta metni eklendi
+        changed: E-posta metni değiştirildi
+        removed: E-posta metni kaldırıldı
+    metadata:
+      removed: Meta veri kaldırıldı
+      removed.all: Tüm meta veriler kaldırıldı
+      set: Meta veri ayarlandı
+  project:
+    added: Proje eklendi
+    changed: Proje değiştirildi
+    deactivated: Proje devre dışı bırakıldı
+    reactivated: Proje yeniden etkinleştirildi
+    removed: Proje kaldırıldı
+    member:
+      added: Proje üyesi eklendi
+      changed: Proje üyesi değiştirildi
+      removed: Proje üyesi kaldırıldı
+      cascade:
+        removed: Proje üyesi zincirleme kaldırıldı
+    role:
+      added: Proje rolü eklendi
+      changed: Proje rolü değiştirildi
+      removed: Proje rolü kaldırıldı
+    grant:
+      added: Yönetim erişimi eklendi
+      changed: Yönetim erişimi değiştirildi
+      removed: Yönetim erişimi kaldırıldı
+      deactivated: Yönetim erişimi devre dışı bırakıldı
+      reactivated: Yönetim erişimi yeniden etkinleştirildi
+      cascade:
+        changed: Yönetim erişimi değiştirildi
+      member:
+        added: Yönetim erişimi üyesi eklendi
+        changed: Yönetim erişimi üyesi değiştirildi
+        removed: Yönetim erişimi üyesi kaldırıldı
+        cascade:
+          removed: Yönetim erişimi zincirleme kaldırıldı
+    application:
+      added: Uygulama eklendi
+      changed: Uygulama değiştirildi
+      removed: Uygulama kaldırıldı
+      deactivated: Uygulama devre dışı bırakıldı
+      reactivated: Uygulama yeniden etkinleştirildi
+      oidc:
+        secret:
+          check:
+            succeeded: OIDC istemci gizli anahtarı denetimi başarılı oldu
+            failed: OIDC istemci gizli anahtarı denetimi başarısız oldu
+        key:
+          added: OIDC uygulama anahtarı eklendi
+          removed: OIDC uygulama anahtarı kaldırıldı
+      api:
+        secret:
+          check:
+            succeeded: API gizli anahtarı denetimi başarılı oldu
+            failed: API gizli anahtarı denetimi başarısız oldu
+        key:
+          added: Uygulama anahtarı eklendi
+          removed: Uygulama anahtarı kaldırıldı
+      config:
+        saml:
+          added: SAML yapılandırması eklendi
+          changed: SAML yapılandırması değiştirildi
+        oidc:
+          added: OIDC yapılandırması eklendi
+          changed: OIDC yapılandırması değiştirildi
+          secret:
+            changed: OIDC gizli anahtarı değiştirildi
+            updated: OIDC gizli anahtar karması güncellendi
+        api:
+          added: API yapılandırması eklendi
+          changed: API yapılandırması değiştirildi
+          secret:
+            changed: API gizli anahtarı değiştirildi
+            updated: API gizli anahtar karması güncellendi
+  policy:
+    password:
+      complexity:
+        added: Parola karmaşıklığı politikası eklendi
+        changed: Parola karmaşıklığı politikası değiştirildi
+      age:
+        added: Parola geçerlilik süresi politikası eklendi
+        changed: Parola geçerlilik süresi politikası değiştirildi
+      lockout:
+        added: Parola kilitleme politikası eklendi
+        changed: Parola kilitleme politikası değiştirildi
+  iam:
+    setup:
+      started: ZITADEL kurulumu başlatıldı
+      done: ZITADEL kurulumu tamamlandı
+    global:
+      org:
+        set: Genel kuruluş ayarlandı
+    project:
+      iam:
+        set: ZITADEL projesi ayarlandı
+    member:
+      added: ZITADEL üyesi eklendi
+      changed: ZITADEL üyesi değiştirildi
+      removed: ZITADEL üyesi kaldırıldı
+      cascade:
+        removed: ZITADEL üyesi zincirleme kaldırıldı
+    idp:
+      config:
+        added: Kimlik sağlayıcı yapılandırması eklendi
+        changed: Kimlik sağlayıcı yapılandırması değiştirildi
+        removed: Kimlik sağlayıcı yapılandırması kaldırıldı
+        deactivated: Kimlik sağlayıcı yapılandırması devre dışı bırakıldı
+        reactivated: Kimlik sağlayıcı yapılandırması yeniden etkinleştirildi
+      oidc:
+        config:
+          added: OIDC kimlik sağlayıcı yapılandırması eklendi
+          changed: OIDC kimlik sağlayıcı yapılandırması değiştirildi
+      saml:
+        config:
+          added: SAML kimlik sağlayıcı yapılandırması eklendi
+          changed: SAML kimlik sağlayıcı yapılandırması değiştirildi
+      jwt:
+        config:
+          added: Kimlik sağlayıcıya JWT yapılandırması eklendi
+          changed: Kimlik sağlayıcıdan JWT yapılandırması kaldırıldı
+    customtext:
+      set: Metin ayarlandı
+      removed: Metin kaldırıldı
+    policy:
+      login:
+        added: Varsayılan oturum açma politikası eklendi
+        changed: Varsayılan oturum açma politikası değiştirildi
+        idpprovider:
+          added: Kimlik sağlayıcı varsayılan oturum açma politikasına eklendi
+          removed: Kimlik sağlayıcı varsayılan oturum açma politikasından kaldırıldı
+      label:
+        added: Marka politikası eklendi
+        changed: Marka politikası değiştirildi
+        activated: Marka politikası etkinleştirildi
+        logo:
+          added: Marka politikasına logo eklendi
+          removed: Marka politikasından logo kaldırıldı
+          dark:
+            added: Marka politikasına logo (koyu mod) eklendi
+            removed: Marka politikasından logo (koyu mod) kaldırıldı
+        icon:
+          added: Marka politikasına simge eklendi
+          removed: Marka politikasından simge kaldırıldı
+          dark:
+            added: Marka politikasına simge (koyu mod) eklendi
+            removed: Marka politikasından simge (koyu mod) kaldırıldı
+        font:
+          added: Marka politikasına yazı tipi eklendi
+          removed: Marka politikasından yazı tipi kaldırıldı
+        assets:
+          removed: Marka politikasından varlıklar kaldırıldı
+    default:
+      language:
+        set: Varsayılan dil ayarlandı
+    oidc:
+      settings:
+        added: OIDC yapılandırması eklendi
+        changed: OIDC yapılandırması değiştirildi
+        removed: OIDC yapılandırması kaldırıldı
+    secret:
+      generator:
+        added: Gizli anahtar üreteci eklendi
+        changed: Gizli anahtar üreteci değiştirildi
+        removed: Gizli anahtar üreteci kaldırıldı
+    smtp:
+      config:
+        added: SMTP yapılandırması eklendi
+        changed: SMTP yapılandırması değiştirildi
+        activated: SMTP yapılandırması etkinleştirildi
+        deactivated: SMTP yapılandırması devre dışı bırakıldı
+        removed: SMTP yapılandırması kaldırıldı
+        password:
+          changed: SMTP yapılandırması gizli anahtarı değiştirildi
+    sms:
+      config:
+        twilio:
+          added: Twilio SMS sağlayıcısı eklendi
+          changed: Twilio SMS sağlayıcısı değiştirildi
+          token:
+            changed: Twilio SMS sağlayıcısı belirteci değiştirildi
+          removed: Twilio SMS sağlayıcısı kaldırıldı
+          activated: Twilio SMS sağlayıcısı etkinleştirildi
+          deactivated: Twilio SMS sağlayıcısı devre dışı bırakıldı
+  key_pair:
+    added: Anahtar çifti eklendi
+    certificate:
+      added: Sertifika eklendi
+  action:
+    added: Eylem eklendi
+    changed: Eylem değiştirildi
+    deactivated: Eylem devre dışı bırakıldı
+    reactivated: Eylem yeniden etkinleştirildi
+    removed: Eylem kaldırıldı
+  instance:
+    added: Örnek eklendi
+    changed: Örnek değiştirildi
+    customtext:
+      removed: Özel metin kaldırıldı
+      set: Özel metin ayarlandı
+      template:
+        removed: Özel metin şablonu kaldırıldı
+    default:
+      language:
+        set: Varsayılan dil ayarlandı
+      org:
+        set: Varsayılan kuruluş ayarlandı
+    domain:
+      added: Alan adı eklendi
+      primary:
+        set: Birincil alan adı ayarlandı
+      removed: Alan adı kaldırıldı
+    iam:
+      console:
+        set: ZITADEL Console uygulaması ayarlandı
+      project:
+        set: ZITADEL projesi ayarlandı
+    mail:
+      template:
+        added: E-posta şablonu eklendi
+        changed: E-posta şablonu değiştirildi
+      text:
+        added: E-posta metni eklendi
+        changed: E-posta metni değiştirildi
+    member:
+      added: Örnek üyesi eklendi
+      changed: Örnek üyesi değiştirildi
+      removed: Örnek üyesi kaldırıldı
+      cascade:
+        removed: Örnek üyesi zincirleme kaldırıldı
+    notification:
+      provider:
+        debug:
+          fileadded: Dosya hata ayıklama bildirim sağlayıcısı eklendi
+          filechanged: Dosya hata ayıklama bildirim sağlayıcısı değiştirildi
+          fileremoved: Dosya hata ayıklama bildirim sağlayıcısı kaldırıldı
+          logadded: Günlük hata ayıklama bildirim sağlayıcısı eklendi
+          logchanged: Günlük hata ayıklama bildirim sağlayıcısı değiştirildi
+          logremoved: Günlük hata ayıklama bildirim sağlayıcısı kaldırıldı
+    oidc:
+      settings:
+        added: OIDC ayarları eklendi
+        changed: OIDC ayarları değiştirildi
+    policy:
+      domain:
+        added: Alan adı politikası eklendi
+        changed: Alan adı politikası değiştirildi
+      label:
+        activated: Marka politikası etkinleştirildi
+        added: Marka politikası eklendi
+        assets:
+          removed: Marka politikasından varlık kaldırıldı
+        changed: Marka politikası değiştirildi
+        font:
+          added: Marka politikasına yazı tipi eklendi
+          removed: Marka politikasından yazı tipi kaldırıldı
+        icon:
+          added: Marka politikasına simge eklendi
+          removed: Marka politikasından simge kaldırıldı
+          dark:
+            added: Koyu mod marka politikasına simge eklendi
+            removed: Koyu mod marka politikasından simge kaldırıldı
+        logo:
+          added: Marka politikasına logo eklendi
+          removed: Marka politikasından logo kaldırıldı
+          dark:
+            added: Koyu mod marka politikasına logo eklendi
+            removed: Koyu mod marka politikasından logo kaldırıldı
+      lockout:
+        added: Kilitleme politikası eklendi
+        changed: Kilitleme politikası değiştirildi
+      login:
+        added: Oturum açma politikası eklendi
+        changed: Oturum açma politikası değiştirildi
+        idpprovider:
+          added: Kimlik sağlayıcı oturum açma politikasına eklendi
+          cascade:
+            removed: Kimlik sağlayıcı oturum açma politikasından zincirleme kaldırıldı
+          removed: Kimlik sağlayıcı oturum açma politikasından kaldırıldı
+        multifactor:
+          added: Çok faktörlü doğrulama oturum açma politikasına eklendi
+          removed: Çok faktörlü doğrulama oturum açma politikasından kaldırıldı
+        secondfactor:
+          added: İkinci faktör oturum açma politikasına eklendi
+          removed: İkinci faktör oturum açma politikasından kaldırıldı
+      password:
+        age:
+          added: Parola geçerlilik süresi politikası eklendi
+          changed: Parola geçerlilik süresi politikası değiştirildi
+        complexity:
+          added: Parola karmaşıklığı politikası eklendi
+          changed: Parola karmaşıklığı politikası kaldırıldı
+      privacy:
+        added: Gizlilik politikası eklendi
+        changed: Gizlilik politikası değiştirildi
+      security:
+        set: Güvenlik politikası ayarlandı
+
+    removed: Örnek kaldırıldı
+    secret:
+      generator:
+        added: Gizli anahtar üreteci eklendi
+        changed: Gizli anahtar üreteci değiştirildi
+        removed: Gizli anahtar üreteci kaldırıldı
+    sms:
+      configtwilio:
+        activated: Twilio SMS yapılandırması etkinleştirildi
+        added: Twilio SMS yapılandırması eklendi
+        changed: Twilio SMS yapılandırması değiştirildi
+        deactivated: Twilio SMS yapılandırması devre dışı bırakıldı
+        removed: Twilio SMS yapılandırması kaldırıldı
+        token:
+          changed: Twilio SMS yapılandırması belirteci değiştirildi
+    smtp:
+      config:
+        added: SMTP yapılandırması eklendi
+        changed: SMTP yapılandırması değiştirildi
+        activated: SMTP yapılandırması etkinleştirildi
+        deactivated: SMTP yapılandırması devre dışı bırakıldı
+        password:
+          changed: SMTP yapılandırması parolası değiştirildi
+        removed: SMTP yapılandırması kaldırıldı
+  user_schema:
+    created: Kullanıcı şeması oluşturuldu
+    updated: Kullanıcı şeması güncellendi
+    deactivated: Kullanıcı şeması devre dışı bırakıldı
+    reactivated: Kullanıcı şeması yeniden etkinleştirildi
+    deleted: Kullanıcı şeması silindi
+    user:
+      created: Kullanıcı oluşturuldu
+      updated: Kullanıcı güncellendi
+      deleted: Kullanıcı silindi
+      email:
+        updated: E-posta adresi değiştirildi
+        verified: E-posta adresi doğrulandı
+        verification:
+          failed: E-posta adresi doğrulaması başarısız oldu
+        code:
+          added: E-posta adresi doğrulama kodu oluşturuldu
+          sent: E-posta adresi doğrulama kodu gönderildi
+      phone:
+        updated: Telefon numarası değiştirildi
+        verified: Telefon numarası doğrulandı
+        verification:
+          failed: Telefon numarası doğrulaması başarısız oldu
+        code:
+          added: Telefon numarası doğrulama kodu oluşturuldu
+          sent: Telefon numarası doğrulama kodu gönderildi
+
+
+  web_key:
+    added: Web anahtarı eklendi
+    activated: Web anahtarı etkinleştirildi
+    deactivated: Web anahtarı devre dışı bırakıldı
+    removed: Web anahtarı kaldırıldı
+
+Application:
+  OIDC:
+    UnsupportedVersion: OIDC sürümünüz desteklenmiyor
+    V1:
+      NotCompliant: Yapılandırmanız uyumlu değil ve OIDC 1.0 standardından farklı.
+      NoRedirectUris: En az bir yönlendirme URI'si kaydedilmelidir.
+      NotAllCombinationsAreAllowed: Yapılandırma uyumlu ancak tüm kombinasyonlara izin verilmiyor.
+      Code:
+        RedirectUris:
+          HttpOnlyForWeb: Code yetkilendirme türü, yalnızca web uygulama türü için http yönlendirme URI'lerine izin verir.
+          CustomOnlyForNative: Code yetkilendirme türü, yalnızca yerel uygulama türü için özel yönlendirme URI'lerine izin verir (örn. uygulamaadi://)
+      Implicit:
+        RedirectUris:
+          CustomNotAllowed: Implicit yetkilendirme türü özel yönlendirme URI'lerine izin vermez
+          HttpNotAllowed: Implicit yetkilendirme türü http yönlendirme URI'lerine izin vermez
+          HttpLocalhostOnlyForNative: Http://localhost yönlendirme URI'sine yalnızca yerel uygulamalar için izin verilir.
+      Native:
+        AuthMethodType:
+          NotNone: Yerel uygulamaların kimlik doğrulama yöntemi türü none olmalıdır.
+        RedirectUris:
+          MustBeHttpLocalhost: Yönlendirme URI'leri kendi protokolünüzle, http://127.0.0.1, http://[::1] ya da http://localhost ile başlamalıdır.
+      UserAgent:
+        AuthMethodType:
+          NotNone: Kullanıcı aracısı uygulamalarının kimlik doğrulama yöntemi türü none olmalıdır.
+      GrantType:
+        Refresh:
+          NoAuthCode: Yenileme belirtecine yalnızca Authorization Code ile birlikte izin verilir.
+
+Action:
+  Flow:
+    Type:
+      Unspecified: Belirtilmemiş
+      ExternalAuthentication: Harici kimlik doğrulama
+      CustomiseToken: Belirteci tamamla
+      InternalAuthentication: Dahili kimlik doğrulama
+      CustomizeSAMLResponse: SAMLResponse'u tamamla
+  TriggerType:
+    Unspecified: Belirtilmemiş
+    PostAuthentication: Kimlik doğrulama sonrası
+    PreCreation: Oluşturma öncesi
+    PostCreation: Oluşturma sonrası
+    PreUserinfoCreation: Userinfo oluşturma öncesi
+    PreAccessTokenCreation: Erişim belirteci oluşturma öncesi
+    PreSAMLResponseCreation: SAMLResponse oluşturma öncesi

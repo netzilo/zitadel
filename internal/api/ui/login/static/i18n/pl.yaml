@@ -264,6 +264,7 @@ RegistrationUser:
   Swedish: Svenska
   Indonesian: Bahasa Indonesia
   Hungarian: Magyar
+  Turkish: Türkçe
   GenderLabel: Płeć
   Female: Kobieta
   Male: Mężczyzna
@@ -306,6 +307,7 @@ ExternalRegistrationUserOverview:
   Swedish: Svenska
   Indonesian: Bahasa Indonesia
   Hungarian: Magyar
+  Turkish: Türkçe
   TosAndPrivacyLabel: Warunki i zasady
   TosConfirm: Akceptuję
   TosLinkText: Warunki korzystania
@@ -382,6 +384,7 @@ ExternalNotFound:
   Swedish: Svenska
   Indonesian: Bahasa Indonesia
   Hungarian: Magyar
+  Turkish: Türkçe
 
 DeviceAuth:
   Title: Autoryzacja urządzenia
